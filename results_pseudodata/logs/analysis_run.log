@@ -1,0 +1,18 @@
+Icesthesia analysis started:  2026-07-29 11:00:54 
+Running  R/00_generate_pseudodata.R 
+Completed  R/00_generate_pseudodata.R  at  2026-07-29 11:00:57 
+Running  R/01_prepare_data.R 
+Completed  R/01_prepare_data.R  at  2026-07-29 11:00:57 
+Running  R/02_descriptives_and_figures.R 
+Completed  R/02_descriptives_and_figures.R  at  2026-07-29 11:00:59 
+Running  R/03_main_models.R 
+Completed  R/03_main_models.R  at  2026-07-29 11:02:31 
+Running  R/04_subgroup_analyses_two_part.R 
+Completed  R/04_subgroup_analyses_two_part.R  at  2026-07-29 11:10:46 
+Running  R/05_model_checks.R 
+Completed  R/05_model_checks.R  at  2026-07-29 11:10:53 
+Running  R/06_export_excel_tables.R 
+Completed  R/06_export_excel_tables.R  at  2026-07-29 11:10:54 
+Running  R/07_export_repository_subgroup_table.R 
+Completed  R/07_export_repository_subgroup_table.R  at  2026-07-29 11:10:54 
+Icesthesia analysis completed:  2026-07-29 11:10:54 

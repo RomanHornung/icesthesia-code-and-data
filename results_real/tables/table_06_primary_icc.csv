@@ -1,0 +1,5 @@
+population,model,icc,n
+ITT,Gamma-log primary,0.08480234057441167,3220
+ITT,Linear mixed sensitivity,0.0603105229162038,3220
+PP,Gamma-log primary,0.08436794926043992,2707
+PP,Linear mixed sensitivity,0.05610348994771825,2707

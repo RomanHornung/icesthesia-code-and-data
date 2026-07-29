@@ -1,0 +1,287 @@
+population,outcome,component,subgroup,level,n_control,n_ice_lolly,effect_scale,subgroup_effect,conf.low,conf.high,p.value,p_value_interaction,note
+ITT,pacu_minutes,primary PACU gamma-log model,age_group,13-75,1308,1312,ratio,1.0137458021192276,0.9576449663260457,1.0731331416662673,0.6383484228769629,0.8060668602043969,
+ITT,pacu_minutes,primary PACU gamma-log model,age_group,<=12,83,85,ratio,1.0514916565119625,0.9162934663804577,1.206638205204877,0.4745862387259703,0.8060668602043969,
+ITT,pacu_minutes,primary PACU gamma-log model,age_group,>=76,202,230,ratio,0.9989109199022247,0.9097345140792181,1.0968288115460243,0.9817788493916016,0.8060668602043969,
+ITT,pacu_minutes,primary PACU gamma-log model,sex,Male,869,882,ratio,1.0117732699529187,0.9515005002170491,1.0758640164221738,0.7087739580294237,0.8911494632305819,
+ITT,pacu_minutes,primary PACU gamma-log model,sex,Female,724,745,ratio,1.0160022631162833,0.9530168669569389,1.0831503979079637,0.6268297174097641,0.8911494632305819,
+ITT,pacu_minutes,primary PACU gamma-log model,asa,I,318,307,ratio,1.0043092575846073,0.9253204367745074,1.0900408602084528,0.9180542404752228,0.9212065123023855,
+ITT,pacu_minutes,primary PACU gamma-log model,asa,II,752,764,ratio,1.012051421102383,0.9498801973252843,1.078291853898499,0.7111286234320373,0.9212065123023855,
+ITT,pacu_minutes,primary PACU gamma-log model,asa,III-IV,523,556,ratio,1.0214793537539286,0.9532739333316719,1.0945647768829814,0.5466747455713188,0.9212065123023855,
+ITT,pacu_minutes,primary PACU gamma-log model,surgery_type,Orthopedic / trauma,664,680,ratio,1.0521589148291584,0.9857085823102282,1.1230889148391916,0.12663431075091938,0.19469325825734632,
+ITT,pacu_minutes,primary PACU gamma-log model,surgery_type,Neurosurgery,229,249,ratio,1.0088149159677349,0.9223730484260744,1.10335784031807,0.8477290413326879,0.19469325825734632,
+ITT,pacu_minutes,primary PACU gamma-log model,surgery_type,ENT,643,652,ratio,0.9805285191546365,0.9183053895940371,1.0469678037070154,0.5566392965697939,0.19469325825734632,
+ITT,pacu_minutes,primary PACU gamma-log model,surgery_type,Other / plastic,57,46,ratio,0.9756157466766651,0.8206173923599723,1.1598902168355925,0.7797378926526548,0.19469325825734632,
+ITT,pacu_minutes,primary PACU gamma-log model,anesthesia_type,TIVA,674,709,ratio,1.0364149675565024,0.9715919178021519,1.1055629069095234,0.27774118954739013,0.06506745586541247,
+ITT,pacu_minutes,primary PACU gamma-log model,anesthesia_type,CIVA,643,650,ratio,0.9823960679790376,0.920139533476598,1.0488648724114615,0.594929663931177,0.06506745586541247,
+ITT,pacu_minutes,primary PACU gamma-log model,anesthesia_type,Balanced,212,172,ratio,1.0450341835529051,0.9468069329729112,1.1534520996429296,0.3817687566759544,0.06506745586541247,
+ITT,pacu_minutes,primary PACU gamma-log model,anesthesia_type,IVA,43,63,ratio,1.128517390543122,0.949002041143803,1.3419902650823439,0.17137676382654496,0.06506745586541247,
+ITT,pacu_minutes,primary PACU gamma-log model,anesthesia_type,Regional,21,33,ratio,0.7967956752986416,0.627304788023296,1.0120811450765475,0.06266623049979646,0.06506745586541247,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,age_group,13-75,1308,1312,proportional odds ratio,0.981518480522871,0.8319281993472474,1.1580068188141928,0.8250046876251622,0.6985186609392038,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,age_group,<=12,83,85,proportional odds ratio,0.8390953961822706,0.401338036509858,1.7543343013713761,0.6410663182851847,0.6985186609392038,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,age_group,>=76,202,230,proportional odds ratio,1.1521915831199054,0.755693534981925,1.7567246281180728,0.5103472621532759,0.6985186609392038,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,sex,Male,869,882,proportional odds ratio,1.1504335309513003,0.9393732769236188,1.4089152221483634,0.1753640036590516,0.027812974860334853,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,sex,Female,724,745,proportional odds ratio,0.8428709928805822,0.6810106159685702,1.0432018150393798,0.1161334893944165,0.027812974860334853,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,asa,I,318,307,proportional odds ratio,1.084064188949579,0.7836973343822982,1.4995523325202897,0.6258308739328724,0.595320285719787,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,asa,II,752,764,proportional odds ratio,0.9232256638800724,0.7476207055697834,1.140077609002553,0.4580315953567242,0.595320285719787,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,asa,III-IV,523,556,proportional odds ratio,1.0533919287904907,0.8175698952422654,1.357235096471035,0.6874875100654044,0.595320285719787,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,surgery_type,Orthopedic / trauma,664,680,proportional odds ratio,1.0012042495201325,0.8047294344323911,1.2456484209058578,0.9913845606224602,0.1337800543661252,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,surgery_type,Neurosurgery,229,249,proportional odds ratio,0.9751007320052206,0.6851168608269587,1.3878237304062904,0.8886458452756019,0.1337800543661252,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,surgery_type,ENT,643,652,proportional odds ratio,1.0812658078571145,0.8479521123134747,1.3787756764366512,0.5286766203777804,0.1337800543661252,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,surgery_type,Other / plastic,57,46,proportional odds ratio,0.42769856432623954,0.20332864717098564,0.8996571042588897,0.025176933068645685,0.1337800543661252,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,anesthesia_type,TIVA,674,709,proportional odds ratio,0.8683315677857314,0.7019517391052147,1.0741475084517316,0.19329617378051317,0.1911617354643779,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,anesthesia_type,CIVA,643,650,proportional odds ratio,1.0646207264905674,0.834790477278359,1.3577266657000544,0.613796561205353,0.1911617354643779,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,anesthesia_type,Balanced,212,172,proportional odds ratio,1.1733534235365146,0.7996718871452806,1.7216539416431136,0.4138130116614817,0.1911617354643779,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,anesthesia_type,IVA,43,63,proportional odds ratio,1.4726847430591734,0.561549157950797,3.8621736347244138,0.4313449073389481,0.1911617354643779,
+ITT,nrs_admission,NRS admission cumulative logit mixed model,anesthesia_type,Regional,21,33,proportional odds ratio,5.085902066768656,0.54090010144806,47.821029730839335,0.15487925039260017,0.1911617354643779,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,age_group,13-75,1308,1312,proportional odds ratio,0.9302490340858411,0.7960637690810076,1.0870526948068917,0.36296567862298296,0.43363069720135844,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,age_group,<=12,83,85,proportional odds ratio,0.9196472072314917,0.5009481957759242,1.6883002931245,0.7869638710865754,0.43363069720135844,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,age_group,>=76,202,230,proportional odds ratio,1.2141196424948937,0.8260875013394962,1.7844193307630318,0.32338444081031464,0.43363069720135844,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,sex,Male,869,882,proportional odds ratio,0.9571595599891928,0.792043666285644,1.1566968618978912,0.6503959229985392,0.9673068138917528,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,sex,Female,724,745,proportional odds ratio,0.9624322065939976,0.7874062466425047,1.176363225766909,0.7084738894947316,0.9673068138917528,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,asa,I,318,307,proportional odds ratio,0.876001128521776,0.6494277262859564,1.1816218281286206,0.3859358305867518,0.08677019979134408,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,asa,II,752,764,proportional odds ratio,0.8642025185782165,0.709156521725383,1.0531469009124401,0.14798684778550975,0.08677019979134408,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,asa,III-IV,523,556,proportional odds ratio,1.191534702754712,0.9372810408565581,1.5147590594292626,0.1524207821781885,0.08677019979134408,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,surgery_type,Orthopedic / trauma,664,680,proportional odds ratio,1.037161354937835,0.8407495414010862,1.2794579398566839,0.7333846839672801,0.03276126516118062,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,surgery_type,Neurosurgery,229,249,proportional odds ratio,1.274652941702936,0.9054045404411211,1.7944908040778775,0.16436351288379783,0.03276126516118062,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,surgery_type,ENT,643,652,proportional odds ratio,0.8405521541876697,0.6763998562046476,1.0445418008719523,0.11714788170639787,0.03276126516118062,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,surgery_type,Other / plastic,57,46,proportional odds ratio,0.45004457058992875,0.21139542186019697,0.958110226490241,0.038362377189219,0.03276126516118062,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,anesthesia_type,TIVA,674,709,proportional odds ratio,1.028404148354339,0.8387041094475158,1.2610109816310566,0.7877616199354577,0.3153753472742191,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,anesthesia_type,CIVA,643,650,proportional odds ratio,0.82200042017676,0.6611384085527752,1.0220018713628156,0.07771554779904878,0.3153753472742191,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,anesthesia_type,Balanced,212,172,proportional odds ratio,1.1701328664698265,0.8033535065410654,1.704369140166194,0.4128826141335819,0.3153753472742191,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,anesthesia_type,IVA,43,63,proportional odds ratio,0.86228033005586735,0.3307895742471496,2.2477351932673932,0.7617994358135189,0.3153753472742191,
+ITT,nrs_discharge,NRS discharge cumulative logit mixed model,anesthesia_type,Regional,21,33,proportional odds ratio,1.930542025851884,0.4769221976333828,7.814676129722298,0.3564826968383588,0.3153753472742191,
+ITT,nausea,nausea logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.8292497980981622,0.533572544667453,1.2887755086319543,0.4052542792147387,0.04879800486973981,
+ITT,nausea,nausea logistic mixed model,age_group,<=12,83,85,odds ratio,1.0132241223694657e-8,2.220446049250313e-16,Inf,0.996485634236362,0.04879800486973981,stratum-specific effect not estimable
+ITT,nausea,nausea logistic mixed model,age_group,>=76,202,230,odds ratio,1.0306441900645809,0.37951674049847745,2.798894839575957,0.9527797221873997,0.04879800486973981,
+ITT,nausea,nausea logistic mixed model,sex,Male,869,882,odds ratio,0.814872687323354,0.4214444285114669,1.5755754534254514,0.5428160150411309,0.9381933097134388,
+ITT,nausea,nausea logistic mixed model,sex,Female,724,745,odds ratio,0.7904582163785269,0.4906704666706889,1.2734090072302429,0.33378891539150146,0.9381933097134388,
+ITT,nausea,nausea logistic mixed model,asa,I,318,307,odds ratio,0.2652650575106843,0.07942189190199302,0.8859717270771899,0.03102656250976265,0.016393453622651995,
+ITT,nausea,nausea logistic mixed model,asa,II,752,764,odds ratio,1.2271518584868368,0.7321025223353674,2.056954644800229,0.4373274608487421,0.016393453622651995,
+ITT,nausea,nausea logistic mixed model,asa,III-IV,523,556,odds ratio,0.5441529868643119,0.27553266816889016,1.074654686433964,0.07967068896232946,0.016393453622651995,
+ITT,nausea,nausea logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.5827402623330269,0.32522782654986815,1.0441487032226475,0.06955789110740973,0.10449793796842145,
+ITT,nausea,nausea logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,1.499709887445033,0.6823794561576327,3.296010344691319,0.3131026361336739,0.10449793796842145,
+ITT,nausea,nausea logistic mixed model,surgery_type,ENT,643,652,odds ratio,0.6351716431157115,0.3083314857877581,1.3084716767979554,0.21838435370847523,0.10449793796842145,
+ITT,nausea,nausea logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,2.6085083142195162,0.4275129978969969,15.916043860242455,0.29878188695880464,0.10449793796842145,
+ITT,nausea,nausea logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,0.8472454816969481,0.49756241907778975,1.4426831262424338,0.541602143416998,0.6233433777179525,
+ITT,nausea,nausea logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,0.6602664789365328,0.31835272584716817,1.369398744889449,0.2647153525045541,0.6233433777179525,
+ITT,nausea,nausea logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,0.8264616106730931,0.3191532303014784,2.1401594252113676,0.6945987922435364,0.6233433777179525,
+ITT,nausea,nausea logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,22127028.518440243,2.220446049250313e-16,Inf,0.9969205999769504,0.6233433777179525,stratum-specific effect not estimable
+ITT,nausea,nausea logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.49827579337097816,0.060662514792628054,4.092787236206856,0.516758440986897,0.6233433777179525,
+ITT,vomiting,vomiting logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.6932898426428944,0.28550178008855115,1.683529979262234,0.4183828603741137,0.14103675255373702,
+ITT,vomiting,vomiting logistic mixed model,age_group,<=12,83,85,odds ratio,2.2123664949076156e-9,2.220446049250313e-16,Inf,0.998389715885285,0.14103675255373702,stratum-specific effect not estimable
+ITT,vomiting,vomiting logistic mixed model,age_group,>=76,202,230,odds ratio,0.8333384199775364,0.1686152239522905,4.118565962982984,0.8230397997243033,0.14103675255373702,
+ITT,vomiting,vomiting logistic mixed model,sex,Male,869,882,odds ratio,0.7278032057606385,0.22896300393359686,2.313463298503384,0.590250096225845,0.690896662259617,
+ITT,vomiting,vomiting logistic mixed model,sex,Female,724,745,odds ratio,0.5483730886625849,0.21035754077675806,1.4295329906355723,0.21907874506511454,0.690896662259617,
+ITT,vomiting,vomiting logistic mixed model,asa,I,318,307,odds ratio,0.12038026606659429,0.009977100904318123,1.4524668635948246,0.09567389284757989,0.2629790174864173,
+ITT,vomiting,vomiting logistic mixed model,asa,II,752,764,odds ratio,0.6727631185614623,0.22604754596928675,2.0022788203948947,0.4762865722652953,0.2629790174864173,
+ITT,vomiting,vomiting logistic mixed model,asa,III-IV,523,556,odds ratio,0.8607596891869014,0.28581435096557245,2.5922674632190756,0.7898067889985925,0.2629790174864173,
+ITT,vomiting,vomiting logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.3190785721342082,0.10422480852602449,0.9768416621248414,0.045391555165332075,0.0220720885511018,
+ITT,vomiting,vomiting logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,1.0877370055308118,0.3050211479286701,3.8789828221282048,0.8968525272915938,0.0220720885511018,
+ITT,vomiting,vomiting logistic mixed model,surgery_type,ENT,643,652,odds ratio,0.24014772718761557,0.025478940272181793,2.2634744717519992,0.21266431076342301,0.0220720885511018,
+ITT,vomiting,vomiting logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,319158099.0754001,2.220446049250313e-16,Inf,0.9981705243535585,0.0220720885511018,stratum-specific effect not estimable
+ITT,vomiting,vomiting logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,0.4486530176278549,0.17044439857957783,1.1809688784380987,0.10456368128688191,0.29941477540344463,
+ITT,vomiting,vomiting logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,0.23680547225150658,0.024857480030976042,2.2559338926705017,0.21036762673974116,0.29941477540344463,
+ITT,vomiting,vomiting logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,3.04012167882508,0.505703944113274,18.276186946234308,0.22438056818902127,0.29941477540344463,
+ITT,vomiting,vomiting logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,0.018027812064060966,2.220446049250313e-16,Inf,0.9999329293238592,0.29941477540344463,stratum-specific effect not estimable
+ITT,vomiting,vomiting logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.7849906450686882,0.02942458393366998,20.942022977604033,0.8851153146313099,0.29941477540344463,
+ITT,antiemetic,antiemetic logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.7163348386374007,0.5336753572433308,0.9615126388751454,0.026331349689581167,0.7443343859858,
+ITT,antiemetic,antiemetic logistic mixed model,age_group,<=12,83,85,odds ratio,0.5649332430821488,0.1967823437921532,1.6218404709947378,0.28856388785354586,0.7443343859858,
+ITT,antiemetic,antiemetic logistic mixed model,age_group,>=76,202,230,odds ratio,0.8493555770531127,0.499720370236068,1.4436171491877234,0.5462968556946582,0.7443343859858,
+ITT,antiemetic,antiemetic logistic mixed model,sex,Male,869,882,odds ratio,0.8483870034461036,0.6183457863590571,1.164009723191213,0.30826972994834084,0.09512308682745116,
+ITT,antiemetic,antiemetic logistic mixed model,sex,Female,724,745,odds ratio,0.5704678555850504,0.3832191117786524,0.8492101887751793,0.005689220043888109,0.09512308682745116,
+ITT,antiemetic,antiemetic logistic mixed model,asa,I,318,307,odds ratio,0.6823680280547615,0.35460696609451364,1.3130766460669023,0.2524618267608527,0.2151970407344567,
+ITT,antiemetic,antiemetic logistic mixed model,asa,II,752,764,odds ratio,0.927654152288375,0.6354500456458095,1.3542248240509485,0.6972420925865377,0.2151970407344567,
+ITT,antiemetic,antiemetic logistic mixed model,asa,III-IV,523,556,odds ratio,0.6047136537214549,0.4214052238173363,0.867760014184494,0.006339013011868126,0.2151970407344567,
+ITT,antiemetic,antiemetic logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.7493901204746762,0.5438456530190355,1.0326193646074677,0.07777782049694217,0.7582538066109374,
+ITT,antiemetic,antiemetic logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,0.6354646200559051,0.40432383741829364,0.9987422109991214,0.04936567508503813,0.7582538066109374,
+ITT,antiemetic,antiemetic logistic mixed model,surgery_type,ENT,643,652,odds ratio,1.0630860770480428,0.4486954413697101,2.5187508118278155,0.8894471217580122,0.7582538066109374,
+ITT,antiemetic,antiemetic logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,0.712339079954763,0.23132268350397814,2.1935893062647778,0.5544604648108562,0.7582538066109374,
+ITT,antiemetic,antiemetic logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,0.7389460396386611,0.5433071160433286,1.005032390288286,0.05385837809805709,0.699757443762658,
+ITT,antiemetic,antiemetic logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,1.1500116948120331,0.4759185801960355,2.7788931830727917,0.7561806057595934,0.699757443762658,
+ITT,antiemetic,antiemetic logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,0.7114041604437644,0.4040897707877544,1.252434275953303,0.23801147359771707,0.699757443762658,
+ITT,antiemetic,antiemetic logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,0.4224081369760271,0.14669902582707925,1.2162905184788337,0.11024576093459602,0.699757443762658,
+ITT,antiemetic,antiemetic logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.5970537318827125,0.1601161720107386,2.2263407517084914,0.44245229971532796,0.699757443762658,
+ITT,delirium,delirium cumulative logit mixed model,age_group,13-75,1308,1312,proportional odds ratio,0.7083794714847751,0.38635843915574986,1.2987977607466255,0.26497893508393344,0.8075927062753839,
+ITT,delirium,delirium cumulative logit mixed model,age_group,<=12,83,85,proportional odds ratio,1.1570451573785834,0.22084849550688485,6.061863781958597,0.8629431608411882,0.8075927062753839,
+ITT,delirium,delirium cumulative logit mixed model,age_group,>=76,202,230,proportional odds ratio,0.8985799683146584,0.4008076564655499,2.014547243375262,0.7951591544679063,0.8075927062753839,
+ITT,delirium,delirium cumulative logit mixed model,sex,Male,869,882,proportional odds ratio,0.661621840489253,0.3609786936458694,1.2126573327394932,0.18147611259439614,0.3350754824911488,
+ITT,delirium,delirium cumulative logit mixed model,sex,Female,724,745,proportional odds ratio,1.052590793854788,0.5027572417430103,2.203742258324728,0.8918572910664059,0.3350754824911488,
+ITT,delirium,delirium cumulative logit mixed model,asa,I,318,307,proportional odds ratio,0.16871864057670652,0.02007005032307058,1.418331255768211,0.1013734603811014,0.20254441290658104,
+ITT,delirium,delirium cumulative logit mixed model,asa,II,752,764,proportional odds ratio,0.8068887502408204,0.36652874819513004,1.7763121132276951,0.5940744325125173,0.20254441290658104,
+ITT,delirium,delirium cumulative logit mixed model,asa,III-IV,523,556,proportional odds ratio,0.9645344707472785,0.5189025287049167,1.7928737938156778,0.9091076689662292,0.20254441290658104,
+ITT,delirium,delirium cumulative logit mixed model,surgery_type,Orthopedic / trauma,664,680,proportional odds ratio,1.5176056492650771,0.9482720008893253,2.428761900089127,0.08210717073882637,0.03735898296335366,
+ITT,delirium,delirium cumulative logit mixed model,surgery_type,Neurosurgery,229,249,proportional odds ratio,0.6589566473470921,0.3411276965250133,1.272907088771317,0.21436981259715374,0.03735898296335366,
+ITT,delirium,delirium cumulative logit mixed model,surgery_type,ENT,643,652,proportional odds ratio,0.3151306447457835,0.12952528090585175,0.7667022419358956,0.010909638973013773,0.03735898296335366,
+ITT,delirium,delirium cumulative logit mixed model,anesthesia_type,TIVA,674,709,proportional odds ratio,1.0866156678250072,0.5715593091931732,2.0658111775478525,0.7999445254168687,0.291562989587611,
+ITT,delirium,delirium cumulative logit mixed model,anesthesia_type,CIVA,643,650,proportional odds ratio,0.3171694685412384,0.11314585339364086,0.889086685525724,0.028998811051659024,0.291562989587611,
+ITT,delirium,delirium cumulative logit mixed model,anesthesia_type,Balanced,212,172,proportional odds ratio,0.9875340775567332,0.2896960186202217,3.366368509241756,0.9840051585597955,0.291562989587611,
+ITT,delirium,delirium cumulative logit mixed model,anesthesia_type,IVA,43,63,proportional odds ratio,1.7159146348004213,0.14595079016137086,20.17366970515761,0.6676179524798403,0.291562989587611,
+ITT,delirium,delirium cumulative logit mixed model,anesthesia_type,Regional,21,33,proportional odds ratio,0.6690470533004995,0.03796488175941056,11.7904742168498,0.783668847035939,0.291562989587611,
+ITT,piritramide_mg,any medication: logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.9260182496883181,0.7708181758651398,1.1124670195969064,0.4115219487586099,0.906567534677363,
+ITT,piritramide_mg,any medication: logistic mixed model,age_group,<=12,83,85,odds ratio,0.8839174143941664,0.4531730556558378,1.7240874886935782,0.7173578965285143,0.906567534677363,
+ITT,piritramide_mg,any medication: logistic mixed model,age_group,>=76,202,230,odds ratio,0.8358155974933389,0.5384162956269694,1.2974861992237121,0.424114825325185,0.906567534677363,
+ITT,piritramide_mg,any medication: logistic mixed model,sex,Male,869,882,odds ratio,0.901405172552419,0.7228817821675485,1.1240168242556832,0.3566437556012411,0.8687664988765071,
+ITT,piritramide_mg,any medication: logistic mixed model,sex,Female,724,745,odds ratio,0.924829790839306,0.7311109528869875,1.169877347133774,0.514638613605467,0.8687664988765071,
+ITT,piritramide_mg,any medication: logistic mixed model,asa,I,318,307,odds ratio,1.0860783346899814,0.7659809998541361,1.539941786163867,0.6430061960556583,0.35367908824109423,
+ITT,piritramide_mg,any medication: logistic mixed model,asa,II,752,764,odds ratio,0.932026810064247,0.7387812218808721,1.175820322648386,0.5526634653695222,0.35367908824109423,
+ITT,piritramide_mg,any medication: logistic mixed model,asa,III-IV,523,556,odds ratio,0.794156628493495,0.6017072852183358,1.0481587410916993,0.1035736399989637,0.35367908824109423,
+ITT,piritramide_mg,any medication: logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.9750374314904312,0.7640908344927904,1.244221170953501,0.8389505480643649,0.3010927398075793,
+ITT,piritramide_mg,any medication: logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,1.1676581802307435,0.7795691592898815,1.7489476201210061,0.45208646672187786,0.3010927398075793,
+ITT,piritramide_mg,any medication: logistic mixed model,surgery_type,ENT,643,652,odds ratio,0.7970187082793563,0.6182692974034972,1.0274468164844384,0.07994761511073512,0.3010927398075793,
+ITT,piritramide_mg,any medication: logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,0.6437135736942592,0.27659176858656204,1.4981182089247689,0.3067405309801299,0.3010927398075793,
+ITT,piritramide_mg,any medication: logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,0.96736124687401015,0.7630324353952845,1.226406294863285,0.7840015440311645,0.4959892295925534,
+ITT,piritramide_mg,any medication: logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,0.7951875847855848,0.6169273347677334,1.024955873020596,0.07678905134566022,0.4959892295925534,
+ITT,piritramide_mg,any medication: logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,1.087767207211174,0.7006934509202315,1.6886664140074852,0.707733644990445,0.4959892295925534,
+ITT,piritramide_mg,any medication: logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,0.7567433187029594,0.24471720125885252,2.3400907147341488,0.6284453776919205,0.4959892295925534,
+ITT,piritramide_mg,any medication: logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,2.032901618998344,0.45773414463771517,9.028579233032756,0.3509981156363446,0.4959892295925534,
+ITT,piritramide_mg,positive dose: binary fallback model,age_group,13-75,607,581,odds ratio,1.0204052685437917,0.7769640310403747,1.340122412974122,0.8845090873100006,0.30535996833113577,
+ITT,piritramide_mg,positive dose: binary fallback model,age_group,<=12,32,33,odds ratio,0.541671575201046,0.10252447226490838,2.861834729786839,0.4703558666783635,0.30535996833113577,
+ITT,piritramide_mg,positive dose: binary fallback model,age_group,>=76,78,80,odds ratio,1.6622907701848677,0.8278194849212916,3.337938590445868,0.15308256504689835,0.30535996833113577,
+ITT,piritramide_mg,positive dose: binary fallback model,sex,Male,350,337,odds ratio,1.0237703290417426,0.7200381612475241,1.4556251918791507,0.8959116945151261,0.7391349392143459,
+ITT,piritramide_mg,positive dose: binary fallback model,sex,Female,367,357,odds ratio,1.1078500191549459,0.7878477169688864,1.5578285479630114,0.5559233070982283,0.7391349392143459,
+ITT,piritramide_mg,positive dose: binary fallback model,asa,I,133,129,odds ratio,1.0057788921124993,0.554199737980909,1.82531876233744,0.9848813092649916,0.9765246035755324,
+ITT,piritramide_mg,positive dose: binary fallback model,asa,II,345,335,odds ratio,1.0733208405066115,0.7584339032281371,1.518942681441934,0.689624909531065,0.9765246035755324,
+ITT,piritramide_mg,positive dose: binary fallback model,asa,III-IV,239,230,odds ratio,1.0857212647994468,0.7190954183950872,1.6392687739112477,0.6956141373519193,0.9765246035755324,
+ITT,piritramide_mg,positive dose: binary fallback model,surgery_type,Orthopedic / trauma,341,337,odds ratio,1.1254934714462694,0.7974742809929388,1.5884343664236498,0.501236905320319,0.6218949155494593,
+ITT,piritramide_mg,positive dose: binary fallback model,surgery_type,Neurosurgery,124,145,odds ratio,0.984133944272597,0.5810395840224083,1.6668737327062857,0.9525642717663959,0.6218949155494593,
+ITT,piritramide_mg,positive dose: binary fallback model,surgery_type,ENT,224,193,odds ratio,1.1418664699535388,0.7068724606702229,1.8445463754068148,0.5876885069432726,0.6218949155494593,
+ITT,piritramide_mg,positive dose: binary fallback model,surgery_type,Other / plastic,28,19,odds ratio,0.4877490912479981,0.13657224607346008,1.741929146316344,0.26896987613514184,0.6218949155494593,
+ITT,piritramide_mg,positive dose: binary fallback model,anesthesia_type,TIVA,362,382,odds ratio,0.9722824188296225,0.7016081942451672,1.3473803608896393,0.8659106207816067,0.8161206996474375,
+ITT,piritramide_mg,positive dose: binary fallback model,anesthesia_type,CIVA,224,193,odds ratio,1.1680669269669435,0.7246264462265668,1.882874069776087,0.5236534156588413,0.8161206996474375,
+ITT,piritramide_mg,positive dose: binary fallback model,anesthesia_type,Balanced,120,102,odds ratio,1.304723599872191,0.7211477137762063,2.36054783166341,0.3792440918713118,0.8161206996474375,
+ITT,piritramide_mg,positive dose: binary fallback model,anesthesia_type,IVA,7,10,odds ratio,0.4598601144695181,0.030702170144394837,6.887829879300101,0.57374815951724,0.8161206996474375,
+ITT,piritramide_mg,positive dose: binary fallback model,anesthesia_type,Regional,4,7,odds ratio,2.2100310056117487,0.10052190000469413,48.58878558341209,0.6150097724980592,0.8161206996474375,very sparse subgroup level
+ITT,dexketoprofen_mg,any medication: logistic mixed model,age_group,13-75,1308,1312,odds ratio,1.0655982514635562,0.8113227228509523,1.3995659206142936,0.6478317523956789,0.4705098229737655,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,age_group,<=12,83,85,odds ratio,6353178.964191533,2.220446049250313e-16,Inf,0.9957451661866398,0.4705098229737655,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,any medication: logistic mixed model,age_group,>=76,202,230,odds ratio,1.2997712689209202,0.761628701940135,2.2181482226297304,0.33632633857161787,0.4705098229737655,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,sex,Male,869,882,odds ratio,1.2535419289679748,0.9078885642904719,1.7307932156947008,0.16979081496471282,0.19089349135969713,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,sex,Female,724,745,odds ratio,0.9630215225631359,0.6927911406108619,1.3386580724777821,0.8225760321975044,0.19089349135969713,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,asa,I,318,307,odds ratio,1.5092995029581169,0.8926250026228324,2.5520067026311533,0.12451472779821432,0.40268496949559146,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,asa,II,752,764,odds ratio,1.0370841684218324,0.7411036357658718,1.4512728321454185,0.8318042196593275,0.40268496949559146,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,asa,III-IV,523,556,odds ratio,1.0436506824432468,0.7259428497045696,1.5004028862706198,0.8175628380933189,0.40268496949559146,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,1.2649927856213818,0.9290275774745762,1.7224534410744494,0.13555799499046434,0.09844530021103787,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,0.8864690654663769,0.5259443534560581,1.4941265152198018,0.6509565537241462,0.09844530021103787,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,surgery_type,ENT,643,652,odds ratio,1.1224507151859795,0.692088262852265,1.8204262023302904,0.6396369760709377,0.09844530021103787,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,0.43357421449098593,0.1784064142060674,1.0536986593673843,0.06510817266422801,0.09844530021103787,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,1.0274630163910354,0.7541039565856953,1.3999134215275786,0.8636967427491459,0.8548244336362643,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,1.123109485829087,0.6944766538346345,1.816295638153488,0.6359401209176341,0.8548244336362643,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,1.3091431836194753,0.7842792563831064,2.185262279052486,0.3028018635937829,0.8548244336362643,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,1.781800367378999,0.46925322367208366,6.765670194757169,0.39615010296552206,0.8548244336362643,
+ITT,dexketoprofen_mg,any medication: logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.9499584358046023,0.23956753514510398,3.766875295560136,0.9417742232370686,0.8548244336362643,
+ITT,dexketoprofen_mg,positive dose: binary fallback model,age_group,13-75,474,464,odds ratio,2.1314333049608014,,,,0.14385931824543144,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,age_group,<=12,0,1,odds ratio,,,,,0.14385931824543144,very sparse subgroup level
+ITT,dexketoprofen_mg,positive dose: binary fallback model,age_group,>=76,53,70,odds ratio,2.220446049250313e-16,,,,0.14385931824543144,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,sex,Male,258,278,odds ratio,1.6878629684730027,,,,0.9208532477325965,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,sex,Female,269,257,odds ratio,1.4714758292655603,,,,0.9208532477325965,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,asa,I,99,97,odds ratio,7659492651262631e3,,,,,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,asa,II,270,263,odds ratio,0.4989878961707509,,,,,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,asa,III-IV,158,175,odds ratio,1.7419603414942189,,,,,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,surgery_type,Orthopedic / trauma,412,426,odds ratio,3.099387255731873,,,,0.2032988445269766,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,surgery_type,Neurosurgery,43,44,odds ratio,1.1162549696684773e-5,,,,0.2032988445269766,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,surgery_type,ENT,39,45,odds ratio,2.220446049250313e-16,,,,0.2032988445269766,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,surgery_type,Other / plastic,33,20,odds ratio,2.220446049250313e-16,,,,0.2032988445269766,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,anesthesia_type,TIVA,358,375,odds ratio,1.7685046112683436,,,,0.6308968590745011,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,anesthesia_type,CIVA,41,46,odds ratio,2.220446049250313e-16,,,,0.6308968590745011,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,anesthesia_type,Balanced,119,96,odds ratio,2904657480572359e11,,,,0.6308968590745011,stratum-specific effect not estimable
+ITT,dexketoprofen_mg,positive dose: binary fallback model,anesthesia_type,IVA,4,11,odds ratio,7.970682548748352e-15,,,,0.6308968590745011,very sparse subgroup level
+ITT,dexketoprofen_mg,positive dose: binary fallback model,anesthesia_type,Regional,5,7,odds ratio,1.012083192743107e-9,,,,0.6308968590745011,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,age_group,13-75,1308,1312,odds ratio,1.5911196320609104,0.7893164086721436,3.2074104322607813,0.1941158533984217,0.06812542451120725,
+ITT,ibuprofen_mg,any medication: logistic mixed model,age_group,<=12,83,85,odds ratio,0.49310948381142006,0.223572673561507,1.0875969730615147,0.07979142663969976,0.06812542451120725,
+ITT,ibuprofen_mg,any medication: logistic mixed model,age_group,>=76,202,230,odds ratio,0.011747194174435977,2.220446049250313e-16,Inf,0.9999383530193667,0.06812542451120725,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,sex,Male,869,882,odds ratio,1.2646684847114755,0.5936055250685706,2.6943589786123803,0.5428734160124113,0.28936730241269576,
+ITT,ibuprofen_mg,any medication: logistic mixed model,sex,Female,724,745,odds ratio,0.7531054757581731,0.36502572853639287,1.5537750171503266,0.44287003897779875,0.28936730241269576,
+ITT,ibuprofen_mg,any medication: logistic mixed model,asa,I,318,307,odds ratio,0.5744225403817351,0.23966249512539564,1.3767746794339455,0.2138524829922547,0.07674704583845292,
+ITT,ibuprofen_mg,any medication: logistic mixed model,asa,II,752,764,odds ratio,0.8910025538805205,0.4128950267555921,1.9227297486717854,0.768694077003786,0.07674704583845292,
+ITT,ibuprofen_mg,any medication: logistic mixed model,asa,III-IV,523,556,odds ratio,2.677037861622276,0.8718367567376053,8.220038507410699,0.08536896838777411,0.07674704583845292,
+ITT,ibuprofen_mg,any medication: logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.8588002419847253,,,,0.8582925793301027,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,1.4352222182408179,,,,0.8582925793301027,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,surgery_type,ENT,643,652,odds ratio,1.0290883022729274,,,,0.8582925793301027,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,3.794243505615033e-7,,,,0.8582925793301027,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,1.0490260736664558,0.49131300025965985,2.239826144739642,0.9015765621870279,0.31212926206554015,
+ITT,ibuprofen_mg,any medication: logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,1.0142852163751275,0.40903615209890926,2.5151187612100623,0.9755784837203744,0.31212926206554015,
+ITT,ibuprofen_mg,any medication: logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,0.5295624264850997,0.1754931957703454,1.5979899523385077,0.25926757461193617,0.31212926206554015,
+ITT,ibuprofen_mg,any medication: logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,4275400171.7870164,2.220446049250313e-16,Inf,0.9994307278401394,0.31212926206554015,stratum-specific effect not estimable
+ITT,ibuprofen_mg,any medication: logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.0012376593730603416,2.220446049250313e-16,Inf,0.9999574201932373,0.31212926206554015,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,age_group,13-75,17,25,odds ratio,2.0129129166714224,,,,0.27121225859601944,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,age_group,<=12,39,33,odds ratio,0.4315154814482833,,,,0.27121225859601944,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,sex,Male,24,26,odds ratio,0.10254680039145342,,,,0.019920762631847423,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,sex,Female,32,32,odds ratio,2.16374994883639,,,,0.019920762631847423,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,asa,I,25,19,odds ratio,0.20103968275341197,,,,0.1691984602251173,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,asa,II,23,24,odds ratio,1.1543229589312194,,,,0.1691984602251173,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,asa,III-IV,8,15,odds ratio,3.34591037112342,,,,0.1691984602251173,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,surgery_type,Orthopedic / trauma,32,37,odds ratio,0.655102957016624,,,,0.9956503932844881,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,surgery_type,Neurosurgery,6,7,odds ratio,0.5830548404010351,,,,0.9956503932844881,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,surgery_type,ENT,17,14,odds ratio,0.5858403411106837,,,,0.9956503932844881,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,surgery_type,Other / plastic,1,0,odds ratio,,,,,0.9956503932844881,very sparse subgroup level
+ITT,ibuprofen_mg,positive dose: binary fallback model,anesthesia_type,TIVA,24,28,odds ratio,0.7900174110714193,,,,0.9170682132203662,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,anesthesia_type,CIVA,17,14,odds ratio,0.5902097701776525,,,,0.9170682132203662,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,anesthesia_type,Balanced,15,14,odds ratio,0.46599252283715886,,,,0.9170682132203662,stratum-specific effect not estimable
+ITT,ibuprofen_mg,positive dose: binary fallback model,anesthesia_type,IVA,0,2,odds ratio,,,,,0.9170682132203662,very sparse subgroup level
+ITT,paracetamol_mg,any medication: logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.9733359623386298,0.8087785138000145,1.1713749554626824,0.774871803966368,0.8252005688886472,
+ITT,paracetamol_mg,any medication: logistic mixed model,age_group,<=12,83,85,odds ratio,1.1574999693289039,0.5988706020553236,2.237221487243153,0.663544491235758,0.8252005688886472,
+ITT,paracetamol_mg,any medication: logistic mixed model,age_group,>=76,202,230,odds ratio,0.9004924552866903,0.5700869334582209,1.4223912432255001,0.653164986223395,0.8252005688886472,
+ITT,paracetamol_mg,any medication: logistic mixed model,sex,Male,869,882,odds ratio,1.0025012820818107,0.8022268584698873,1.2527738381790898,0.9824718018369935,0.69076618538972,
+ITT,paracetamol_mg,any medication: logistic mixed model,sex,Female,724,745,odds ratio,0.9419930772499296,0.7428877658426462,1.194461664852272,0.6218401356924905,0.69076618538972,
+ITT,paracetamol_mg,any medication: logistic mixed model,asa,I,318,307,odds ratio,1.0694618565552014,0.7604830648965393,1.503976505751776,0.6994681780953015,0.7494983071878983,
+ITT,paracetamol_mg,any medication: logistic mixed model,asa,II,752,764,odds ratio,0.921562171687726,0.7303246167882907,1.1628758181815326,0.49122560689222666,0.7494983071878983,
+ITT,paracetamol_mg,any medication: logistic mixed model,asa,III-IV,523,556,odds ratio,0.9969856920341919,0.7462997860878305,1.3318782728472025,0.9836999544509102,0.7494983071878983,
+ITT,paracetamol_mg,any medication: logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.9052176257444396,0.6958676279309812,1.1775500354784048,0.45805236040074393,0.6932551782534435,
+ITT,paracetamol_mg,any medication: logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,1.2060709612023721,0.7986818566183636,1.8212598062693601,0.3729299785513881,0.6932551782534435,
+ITT,paracetamol_mg,any medication: logistic mixed model,surgery_type,ENT,643,652,odds ratio,0.9614397288417914,0.7563557130707711,1.2221317777087852,0.7480268858784275,0.6932551782534435,
+ITT,paracetamol_mg,any medication: logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,1.061432491016059,0.4377608178130316,2.573640415359754,0.8950385727220206,0.6932551782534435,
+ITT,paracetamol_mg,any medication: logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,1.1016441460736917,0.8555249174360076,1.418567478099445,0.45301892906708513,0.46107360902665623,
+ITT,paracetamol_mg,any medication: logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,0.9536055619655075,0.7504099459848896,1.2118223814558322,0.6976091792365604,0.46107360902665623,
+ITT,paracetamol_mg,any medication: logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,0.7606245158178273,0.48556202811652427,1.191505143652347,0.23215558707829403,0.46107360902665623,
+ITT,paracetamol_mg,any medication: logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,0.42197561787278154,0.1026376074858317,1.7348750272038056,0.23163160781335754,0.46107360902665623,
+ITT,paracetamol_mg,any medication: logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,0.8896950629202642,0.10942424070367475,7.233838680482711,0.9129571331549156,0.46107360902665623,
+ITT,paracetamol_mg,positive dose: binary fallback model,age_group,13-75,464,456,odds ratio,0.4648982612005267,0.14841567690261728,1.4562504297243932,0.18858668078651936,0.4360867863511693,
+ITT,paracetamol_mg,positive dose: binary fallback model,age_group,<=12,29,33,odds ratio,1.125252840512393,0.18038739035431603,7.019304135361996,0.8994602719966607,0.4360867863511693,
+ITT,paracetamol_mg,positive dose: binary fallback model,age_group,>=76,56,58,odds ratio,3.0270467059310905e-9,2.220446049250313e-16,Inf,0.9990587468454685,0.4360867863511693,stratum-specific effect not estimable
+ITT,paracetamol_mg,positive dose: binary fallback model,sex,Male,281,289,odds ratio,0.8775822830913952,0.2542476154781417,3.0291362306291423,0.836327222937145,0.2511293291280808,
+ITT,paracetamol_mg,positive dose: binary fallback model,sex,Female,268,258,odds ratio,0.32650165858607605,0.08628237619235059,1.2355168895882767,0.09925201471216111,0.2511293291280808,
+ITT,paracetamol_mg,positive dose: binary fallback model,asa,I,127,126,odds ratio,0.37963470587593945,0.0783330603950078,1.8398682392689472,0.22905173981027122,0.8438958932386116,
+ITT,paracetamol_mg,positive dose: binary fallback model,asa,II,275,266,odds ratio,0.6591638861565209,0.18287161848313974,2.3759675362255632,0.5240607370114129,0.8438958932386116,
+ITT,paracetamol_mg,positive dose: binary fallback model,asa,III-IV,147,155,odds ratio,0.6102377417336194,0.09253860789345238,4.024159320236503,0.607800383324926,0.8438958932386116,
+ITT,paracetamol_mg,positive dose: binary fallback model,surgery_type,Orthopedic / trauma,192,181,odds ratio,0.2547590318528405,0.047320024832944535,1.371558120261409,0.11136076747386371,0.4748131764011161,
+ITT,paracetamol_mg,positive dose: binary fallback model,surgery_type,Neurosurgery,68,85,odds ratio,0.9872510162365065,0.12669371907996935,7.6930772585877305,0.9902272897248807,0.4748131764011161,
+ITT,paracetamol_mg,positive dose: binary fallback model,surgery_type,ENT,273,267,odds ratio,0.8528080630927829,0.2278030636067665,3.192589164347223,0.8131185079280341,0.4748131764011161,
+ITT,paracetamol_mg,positive dose: binary fallback model,surgery_type,Other / plastic,16,14,odds ratio,0.08712608502321792,0.001023570794957808,7.41615013721244,0.2817978039508104,0.4748131764011161,
+ITT,paracetamol_mg,positive dose: binary fallback model,anesthesia_type,TIVA,189,218,odds ratio,0.2788199139714591,0.06986883861277364,1.1126640426629197,0.0704862779883302,0.5566187508036021,
+ITT,paracetamol_mg,positive dose: binary fallback model,anesthesia_type,CIVA,274,267,odds ratio,0.8401223517300058,0.21863264268363866,3.2282716670888707,0.7997724095644935,0.5566187508036021,
+ITT,paracetamol_mg,positive dose: binary fallback model,anesthesia_type,Balanced,79,56,odds ratio,5.970906106230032,0.14501001135184943,245.85695426856043,0.3461869577550903,0.5566187508036021,
+ITT,paracetamol_mg,positive dose: binary fallback model,anesthesia_type,IVA,5,4,odds ratio,1098.4380584134044,2.220446049250313e-16,Inf,0.9999875591200676,0.5566187508036021,very sparse subgroup level
+ITT,paracetamol_mg,positive dose: binary fallback model,anesthesia_type,Regional,2,2,odds ratio,2076.0482714258496,2.220446049250313e-16,Inf,0.9999809711889741,0.5566187508036021,very sparse subgroup level
+ITT,metamizole_g,any medication: logistic mixed model,age_group,13-75,1308,1312,odds ratio,0.8433216660558763,0.6622921168672493,1.073833455550266,0.16691789094448709,0.08992472305278236,
+ITT,metamizole_g,any medication: logistic mixed model,age_group,<=12,83,85,odds ratio,2.6072691337554237,0.4683269830624077,14.515184009647156,0.27396511168446314,0.08992472305278236,
+ITT,metamizole_g,any medication: logistic mixed model,age_group,>=76,202,230,odds ratio,1.335691547599211,0.8280361530197226,2.154582144537694,0.23543498568791404,0.08992472305278236,
+ITT,metamizole_g,any medication: logistic mixed model,sex,Male,869,882,odds ratio,0.8431582932107143,0.632550308373433,1.1238883263500172,0.24464513967529022,0.3305864320397209,
+ITT,metamizole_g,any medication: logistic mixed model,sex,Female,724,745,odds ratio,1.0104584145352438,0.7542357758731945,1.3537228545318143,0.9444117593212,0.3305864320397209,
+ITT,metamizole_g,any medication: logistic mixed model,asa,I,318,307,odds ratio,1.097392352866131,0.6638412174031612,1.8140934075168922,0.7170639688428366,0.7339409601249915,
+ITT,metamizole_g,any medication: logistic mixed model,asa,II,752,764,odds ratio,0.9108411299516929,0.6761869663164392,1.2269262871645312,0.5389384588562174,0.7339409601249915,
+ITT,metamizole_g,any medication: logistic mixed model,asa,III-IV,523,556,odds ratio,0.8767851198858306,0.6364477265607311,1.2078794759900118,0.42112114557138103,0.7339409601249915,
+ITT,metamizole_g,any medication: logistic mixed model,surgery_type,Orthopedic / trauma,664,680,odds ratio,0.9317714703971576,0.7067812956625881,1.2283829218091702,0.6162523979583672,0.618634879963026,
+ITT,metamizole_g,any medication: logistic mixed model,surgery_type,Neurosurgery,229,249,odds ratio,0.8824224220252321,0.5860153089216112,1.3287525411678898,0.5492131779058622,0.618634879963026,
+ITT,metamizole_g,any medication: logistic mixed model,surgery_type,ENT,643,652,odds ratio,1.0833611339225757,0.6735822197990012,1.7424321960936497,0.7412240510139585,0.618634879963026,
+ITT,metamizole_g,any medication: logistic mixed model,surgery_type,Other / plastic,57,46,odds ratio,0.5708842633308108,0.24248889288736802,1.3440155474260906,0.19943039085950093,0.618634879963026,
+ITT,metamizole_g,any medication: logistic mixed model,anesthesia_type,TIVA,674,709,odds ratio,0.8125690623686047,0.6234156515958406,1.059114379673362,0.1247436283860517,0.3001567663930799,
+ITT,metamizole_g,any medication: logistic mixed model,anesthesia_type,CIVA,643,650,odds ratio,1.1113897625938611,0.6892722379669439,1.7920164723908056,0.6648063028273723,0.3001567663930799,
+ITT,metamizole_g,any medication: logistic mixed model,anesthesia_type,Balanced,212,172,odds ratio,1.3170408261857511,0.8224338936412843,2.1091014746002354,0.25168344514222196,0.3001567663930799,
+ITT,metamizole_g,any medication: logistic mixed model,anesthesia_type,IVA,43,63,odds ratio,0.5636217073350647,0.16222770083394025,1.9581700742000063,0.366863449617125,0.3001567663930799,
+ITT,metamizole_g,any medication: logistic mixed model,anesthesia_type,Regional,21,33,odds ratio,1.2111979265564705,0.1763412759921178,8.319098345189849,0.8454764734189617,0.3001567663930799,
+ITT,metamizole_g,positive dose: binary fallback model,age_group,13-75,351,318,odds ratio,0.22278594241045366,,,,0.984870165033294,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,age_group,<=12,2,5,odds ratio,9105005645671.021,,,,0.984870165033294,very sparse subgroup level
+ITT,metamizole_g,positive dose: binary fallback model,age_group,>=76,61,79,odds ratio,0.2951585125222465,,,,0.984870165033294,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,sex,Male,212,192,odds ratio,0.28334069809625784,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,sex,Female,202,210,odds ratio,0.23196244905017505,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,asa,I,50,47,odds ratio,7.41536567664713e-13,,,,0.7799026617754807,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,asa,II,198,188,odds ratio,50393809926111610,,,,0.7799026617754807,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,asa,III-IV,166,167,odds ratio,0.29411716035075924,,,,0.7799026617754807,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,surgery_type,Orthopedic / trauma,229,218,odds ratio,0.7032358524774938,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,surgery_type,Neurosurgery,120,126,odds ratio,2.238392618152344e-9,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,surgery_type,ENT,39,42,odds ratio,7.933138704201647e-10,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,surgery_type,Other / plastic,26,16,odds ratio,3.0071645065514506e-11,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,anesthesia_type,TIVA,298,287,odds ratio,0.39793667076024397,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,anesthesia_type,CIVA,38,42,odds ratio,3.695738975510602e-11,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,anesthesia_type,Balanced,70,64,odds ratio,8.983185380071864e-9,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,anesthesia_type,IVA,6,6,odds ratio,165064366.61426833,,,,,stratum-specific effect not estimable
+ITT,metamizole_g,positive dose: binary fallback model,anesthesia_type,Regional,2,3,odds ratio,2630550.049438359,,,,,very sparse subgroup level

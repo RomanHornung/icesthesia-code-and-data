@@ -1,0 +1,20 @@
+population,outcome,component,effect_scale,estimate,conf.low,conf.high,p.value,n,estimable
+PP,pacu_minutes,gamma-log mixed model: adjusted mean ratio,ratio,1.0083195003697878,0.9758421296517596,1.041877762736891,0.6199018779345656,2683,TRUE
+PP,pacu_minutes,gamma-log mixed model: adjusted mean difference,difference,0.8208695216647328,-2.425492433766276,4.067231477095742,0.6201814973514881,2683,TRUE
+PP,pacu_minutes,linear mixed model sensitivity,difference,0.6714008206045093,-2.4573338426197093,3.8001354838287282,0.6740528828566306,2683,TRUE
+PP,nrs_admission,cumulative logit mixed model,proportional odds ratio,0.9686082929982284,0.8286884026261784,1.1321529567587842,0.6886479382161056,2681,TRUE
+PP,nrs_discharge,cumulative logit mixed model,proportional odds ratio,0.990023932409315,,,,2675,FALSE
+PP,nausea,logistic mixed model,ratio,0.9745994300326377,0.652459335434696,1.4557904185509372,0.8999954807520991,2683,TRUE
+PP,vomiting,logistic mixed model,ratio,2.7052105277144327,1.0084266085222453,7.257012000090997,0.048083374519824716,2683,TRUE
+PP,antiemetic,logistic mixed model,ratio,0.6607335286726873,0.526388685135215,0.8293658436068362,3.52695824501476e-4,2683,TRUE
+PP,delirium,cumulative logit mixed model,proportional odds ratio,1.422304845683689,0.8646067235776711,2.3397355339598778,0.16539631729445414,2682,TRUE
+PP,piritramide_mg,any medication: logistic mixed model,ratio,0.8072435341987356,0.6903859851979008,0.9438808687851196,0.007277837587664102,2683,TRUE
+PP,piritramide_mg,positive dose: cumulative logit mixed model,proportional odds ratio,0.8770711586492609,0.6961040758003948,1.1050844896287284,0.265921062590628,1165,TRUE
+PP,dexketoprofen_mg,any medication: logistic mixed model,ratio,1.1352542781580042,0.9633383117149364,1.337850120153244,0.12998774792795806,2683,TRUE
+PP,dexketoprofen_mg,positive dose: binary fallback model with reduced adjustment,ratio,2.2793526149863474,0.6621008257756459,7.8469141574603425,0.19147481367772184,872,TRUE
+PP,ibuprofen_mg,any medication: logistic mixed model,ratio,1.1979642699310293,0.7579013190096879,1.8935425444391387,0.439371692658178,2683,TRUE
+PP,ibuprofen_mg,positive dose: binary fallback model with reduced adjustment,ratio,0.7611964236841597,0.30763964830877233,1.8834373222530845,0.55497936616024,77,TRUE
+PP,paracetamol_mg,any medication: logistic mixed model,ratio,0.9084556573651356,0.7672320332394705,1.0756741711032396,0.2653891499477831,2683,TRUE
+PP,paracetamol_mg,positive dose: cumulative logit mixed model,proportional odds ratio,1.0701577602122643,1.0677636782141342,1.0725572100916314,0,881,TRUE
+PP,metamizole_g,any medication: logistic mixed model,ratio,0.9667190472530856,0.8034333885725724,1.1631900411585872,0.7199197014342362,2683,TRUE
+PP,metamizole_g,positive dose: cumulative logit mixed model,proportional odds ratio,1.331635990145745,0.6852409769003759,2.5877822109713735,0.3981544366939594,666,TRUE
