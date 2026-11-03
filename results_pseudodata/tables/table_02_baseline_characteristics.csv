@@ -1,45 +1,85 @@
-variable,level,treatment,n,percent,mean,sd,median,q1,q3
-age_group,13-75,Control,1283,82.08573256557901,,,,,
-age_group,<=12,Control,80,5.1183621241202815,,,,,
-age_group,>=76,Control,200,12.795905310300704,,,,,
-age_group,13-75,Ice lolly,1371,82.73989136994568,,,,,
-age_group,<=12,Ice lolly,76,4.586602293301147,,,,,
-age_group,>=76,Ice lolly,210,12.673506336753169,,,,,
-sex,Female,Control,698,44.657709532949454,,,,,
-sex,Male,Control,865,55.342290467050546,,,,,
-sex,Female,Ice lolly,772,46.59022329511165,,,,,
-sex,Male,Ice lolly,885,53.40977670488835,,,,,
-asa,I,Control,303,19.385796545105567,,,,,
-asa,II,Control,776,49.64811260396673,,,,,
-asa,III-IV,Control,484,30.966090850927703,,,,,
-asa,I,Ice lolly,331,19.975859987929994,,,,,
-asa,II,Ice lolly,759,45.80567290283645,,,,,
-asa,III-IV,Ice lolly,567,34.21846710923356,,,,,
-surgery_type,ENT,Control,633,40.49904030710173,,,,,
-surgery_type,Neurosurgery,Control,232,14.843250159948816,,,,,
-surgery_type,Orthopedic / trauma,Control,646,41.330774152271275,,,,,
-surgery_type,Other / plastic,Control,52,3.326935380678183,,,,,
-surgery_type,ENT,Ice lolly,656,39.5896197948099,,,,,
-surgery_type,Neurosurgery,Ice lolly,248,14.966807483403741,,,,,
-surgery_type,Orthopedic / trauma,Ice lolly,707,42.66747133373567,,,,,
-surgery_type,Other / plastic,Ice lolly,46,2.776101388050694,,,,,
-anesthesia_type,Balanced,Control,181,11.580294305822138,,,,,
-anesthesia_type,CIVA,Control,613,39.219449776071656,,,,,
-anesthesia_type,IVA,Control,58,3.710812539987204,,,,,
-anesthesia_type,Regional,Control,24,1.5355086372360844,,,,,
-anesthesia_type,TIVA,Control,687,43.953934740882914,,,,,
-anesthesia_type,Balanced,Ice lolly,195,11.768255884127942,,,,,
-anesthesia_type,CIVA,Ice lolly,688,41.52082076041038,,,,,
-anesthesia_type,IVA,Ice lolly,55,3.31925165962583,,,,,
-anesthesia_type,Regional,Ice lolly,28,1.6898008449004225,,,,,
-anesthesia_type,TIVA,Ice lolly,691,41.70187085093543,,,,,
-epidural,0,Control,1545,98.84836852207293,,,,,
-epidural,1,Control,18,1.1516314779270633,,,,,
-epidural,0,Ice lolly,1634,98.61194930597465,,,,,
-epidural,1,Ice lolly,23,1.388050694025347,,,,,
-regional_add_on,0,Control,1400,89.57133717210493,,,,,
-regional_add_on,1,Control,163,10.428662827895074,,,,,
-regional_add_on,0,Ice lolly,1488,89.80084490042245,,,,,
-regional_add_on,1,Ice lolly,169,10.199155099577549,,,,,
-anesthesia_minutes,,Control,1563,,109.13883557261676,48.65869842663384,101,75,137
-anesthesia_minutes,,Ice lolly,1657,,111.0012070006035,50.4569338392189,104,74,139
+row_id,row_label,group,group_n,n,denominator,percent,median,q1,q3,display_value
+sex_male,Sex: Male,Overall,3220,1750,3220,54.34782608695652,,,,"1,750 (54.3%)"
+sex_male,Sex: Male,Control,1563,865,1563,55.342290467050546,,,,865 (55.3%)
+sex_male,Sex: Male,Ice lolly,1657,885,1657,53.40977670488835,,,,885 (53.4%)
+sex_female,Sex: Female,Overall,3220,1470,3220,45.65217391304348,,,,"1,470 (45.7%)"
+sex_female,Sex: Female,Control,1563,698,1563,44.657709532949454,,,,698 (44.7%)
+sex_female,Sex: Female,Ice lolly,1657,772,1657,46.59022329511165,,,,772 (46.6%)
+age_<=12,Age group (years): <=12,Overall,3220,156,3220,4.84472049689441,,,,156 (4.8%)
+age_<=12,Age group (years): <=12,Control,1563,80,1563,5.1183621241202815,,,,80 (5.1%)
+age_<=12,Age group (years): <=12,Ice lolly,1657,76,1657,4.586602293301147,,,,76 (4.6%)
+age_13-75,Age group (years): 13-75,Overall,3220,2654,3220,82.4223602484472,,,,"2,654 (82.4%)"
+age_13-75,Age group (years): 13-75,Control,1563,1283,1563,82.08573256557901,,,,"1,283 (82.1%)"
+age_13-75,Age group (years): 13-75,Ice lolly,1657,1371,1657,82.73989136994568,,,,"1,371 (82.7%)"
+age_>=76,Age group (years): >=76,Overall,3220,410,3220,12.732919254658386,,,,410 (12.7%)
+age_>=76,Age group (years): >=76,Control,1563,200,1563,12.795905310300704,,,,200 (12.8%)
+age_>=76,Age group (years): >=76,Ice lolly,1657,210,1657,12.673506336753169,,,,210 (12.7%)
+weight_<=40,Weight (kg): <=40,Overall,3220,159,3220,4.937888198757764,,,,159 (4.9%)
+weight_<=40,Weight (kg): <=40,Control,1563,82,1563,5.2463211772232885,,,,82 (5.2%)
+weight_<=40,Weight (kg): <=40,Ice lolly,1657,77,1657,4.646952323476162,,,,77 (4.6%)
+weight_41-90,Weight (kg): 41-90,Overall,3220,2393,3220,74.3167701863354,,,,"2,393 (74.3%)"
+weight_41-90,Weight (kg): 41-90,Control,1563,1145,1563,73.25655790147152,,,,"1,145 (73.3%)"
+weight_41-90,Weight (kg): 41-90,Ice lolly,1657,1248,1657,75.31683765841883,,,,"1,248 (75.3%)"
+weight_>90,Weight (kg): >90,Overall,3220,668,3220,20.74534161490683,,,,668 (20.7%)
+weight_>90,Weight (kg): >90,Control,1563,336,1563,21.497120921305182,,,,336 (21.5%)
+weight_>90,Weight (kg): >90,Ice lolly,1657,332,1657,20.03621001810501,,,,332 (20.0%)
+height_<150,Height (cm): <150,Overall,3220,153,3220,4.751552795031056,,,,153 (4.8%)
+height_<150,Height (cm): <150,Control,1563,77,1563,4.926423544465771,,,,77 (4.9%)
+height_<150,Height (cm): <150,Ice lolly,1657,76,1657,4.586602293301147,,,,76 (4.6%)
+height_150-169,Height (cm): 150-169,Overall,3220,1134,3220,35.21739130434783,,,,"1,134 (35.2%)"
+height_150-169,Height (cm): 150-169,Control,1563,576,1563,36.85220729366603,,,,576 (36.9%)
+height_150-169,Height (cm): 150-169,Ice lolly,1657,558,1657,33.67531683765842,,,,558 (33.7%)
+height_>=170,Height (cm): >=170,Overall,3220,1933,3220,60.03105590062112,,,,"1,933 (60.0%)"
+height_>=170,Height (cm): >=170,Control,1563,910,1563,58.2213691618682,,,,910 (58.2%)
+height_>=170,Height (cm): >=170,Ice lolly,1657,1023,1657,61.73808086904044,,,,"1,023 (61.7%)"
+asa_I,ASA classification: I,Overall,3220,634,3220,19.68944099378882,,,,634 (19.7%)
+asa_I,ASA classification: I,Control,1563,303,1563,19.385796545105567,,,,303 (19.4%)
+asa_I,ASA classification: I,Ice lolly,1657,331,1657,19.975859987929994,,,,331 (20.0%)
+asa_II,ASA classification: II,Overall,3220,1535,3220,47.67080745341615,,,,"1,535 (47.7%)"
+asa_II,ASA classification: II,Control,1563,776,1563,49.64811260396673,,,,776 (49.6%)
+asa_II,ASA classification: II,Ice lolly,1657,759,1657,45.80567290283645,,,,759 (45.8%)
+asa_III,ASA classification: III,Overall,3220,1012,3220,31.428571428571427,,,,"1,012 (31.4%)"
+asa_III,ASA classification: III,Control,1563,462,1563,29.558541266794627,,,,462 (29.6%)
+asa_III,ASA classification: III,Ice lolly,1657,550,1657,33.1925165962583,,,,550 (33.2%)
+asa_IV,ASA classification: IV,Overall,3220,39,3220,1.2111801242236024,,,,39 (1.2%)
+asa_IV,ASA classification: IV,Control,1563,22,1563,1.4075495841330774,,,,22 (1.4%)
+asa_IV,ASA classification: IV,Ice lolly,1657,17,1657,1.0259505129752564,,,,17 (1.0%)
+surgery_Orthopedic / trauma,Surgical specialty: Orthopedic / trauma,Overall,3220,1353,3220,42.01863354037267,,,,"1,353 (42.0%)"
+surgery_Orthopedic / trauma,Surgical specialty: Orthopedic / trauma,Control,1563,646,1563,41.330774152271275,,,,646 (41.3%)
+surgery_Orthopedic / trauma,Surgical specialty: Orthopedic / trauma,Ice lolly,1657,707,1657,42.66747133373567,,,,707 (42.7%)
+surgery_Neurosurgery,Surgical specialty: Neurosurgery,Overall,3220,480,3220,14.906832298136646,,,,480 (14.9%)
+surgery_Neurosurgery,Surgical specialty: Neurosurgery,Control,1563,232,1563,14.843250159948816,,,,232 (14.8%)
+surgery_Neurosurgery,Surgical specialty: Neurosurgery,Ice lolly,1657,248,1657,14.966807483403741,,,,248 (15.0%)
+surgery_ENT,Surgical specialty: ENT,Overall,3220,1289,3220,40.03105590062112,,,,"1,289 (40.0%)"
+surgery_ENT,Surgical specialty: ENT,Control,1563,633,1563,40.49904030710173,,,,633 (40.5%)
+surgery_ENT,Surgical specialty: ENT,Ice lolly,1657,656,1657,39.5896197948099,,,,656 (39.6%)
+surgery_Other / plastic,Surgical specialty: Other / plastic,Overall,3220,98,3220,3.0434782608695654,,,,98 (3.0%)
+surgery_Other / plastic,Surgical specialty: Other / plastic,Control,1563,52,1563,3.326935380678183,,,,52 (3.3%)
+surgery_Other / plastic,Surgical specialty: Other / plastic,Ice lolly,1657,46,1657,2.776101388050694,,,,46 (2.8%)
+anaesthesia_TIVA,Anaesthesia type: TIVA,Overall,3220,1378,3220,42.79503105590062,,,,"1,378 (42.8%)"
+anaesthesia_TIVA,Anaesthesia type: TIVA,Control,1563,687,1563,43.953934740882914,,,,687 (44.0%)
+anaesthesia_TIVA,Anaesthesia type: TIVA,Ice lolly,1657,691,1657,41.70187085093543,,,,691 (41.7%)
+anaesthesia_CIVA,Anaesthesia type: CIVA,Overall,3220,1301,3220,40.40372670807454,,,,"1,301 (40.4%)"
+anaesthesia_CIVA,Anaesthesia type: CIVA,Control,1563,613,1563,39.219449776071656,,,,613 (39.2%)
+anaesthesia_CIVA,Anaesthesia type: CIVA,Ice lolly,1657,688,1657,41.52082076041038,,,,688 (41.5%)
+anaesthesia_Balanced,Anaesthesia type: Volatile anaesthesia,Overall,3220,376,3220,11.677018633540373,,,,376 (11.7%)
+anaesthesia_Balanced,Anaesthesia type: Volatile anaesthesia,Control,1563,181,1563,11.580294305822138,,,,181 (11.6%)
+anaesthesia_Balanced,Anaesthesia type: Volatile anaesthesia,Ice lolly,1657,195,1657,11.768255884127942,,,,195 (11.8%)
+anaesthesia_IVA,Anaesthesia type: MAC,Overall,3220,113,3220,3.5093167701863353,,,,113 (3.5%)
+anaesthesia_IVA,Anaesthesia type: MAC,Control,1563,58,1563,3.710812539987204,,,,58 (3.7%)
+anaesthesia_IVA,Anaesthesia type: MAC,Ice lolly,1657,55,1657,3.31925165962583,,,,55 (3.3%)
+anaesthesia_Regional,Anaesthesia type: Spinal / peripheral nerve block,Overall,3220,52,3220,1.6149068322981366,,,,52 (1.6%)
+anaesthesia_Regional,Anaesthesia type: Spinal / peripheral nerve block,Control,1563,24,1563,1.5355086372360844,,,,24 (1.5%)
+anaesthesia_Regional,Anaesthesia type: Spinal / peripheral nerve block,Ice lolly,1657,28,1657,1.6898008449004225,,,,28 (1.7%)
+epidural,Anaesthesia: Epidural catheter,Overall,3220,41,3220,1.2732919254658386,,,,41 (1.3%)
+epidural,Anaesthesia: Epidural catheter,Control,1563,18,1563,1.1516314779270633,,,,18 (1.2%)
+epidural,Anaesthesia: Epidural catheter,Ice lolly,1657,23,1657,1.388050694025347,,,,23 (1.4%)
+regional_add_on,Anaesthesia: Regional add-on block,Overall,3220,332,3220,10.31055900621118,,,,332 (10.3%)
+regional_add_on,Anaesthesia: Regional add-on block,Control,1563,163,1563,10.428662827895074,,,,163 (10.4%)
+regional_add_on,Anaesthesia: Regional add-on block,Ice lolly,1657,169,1657,10.199155099577549,,,,169 (10.2%)
+duration,"Duration of anaesthesia (min), median (Q1, Q3)",Overall,3220,3220,3220,,102,74,138,"102 (74, 138)"
+duration,"Duration of anaesthesia (min), median (Q1, Q3)",Control,1563,1563,1563,,101,75,137,"101 (75, 137)"
+duration,"Duration of anaesthesia (min), median (Q1, Q3)",Ice lolly,1657,1657,1657,,104,74,139,"104 (74, 139)"
+nrs_admission,"NRS at PACU admission, median (Q1, Q3)",Overall,3220,3217,3220,,0,0,2,"0 (0, 2)"
+nrs_admission,"NRS at PACU admission, median (Q1, Q3)",Control,1563,1561,1563,,0,0,2,"0 (0, 2)"
+nrs_admission,"NRS at PACU admission, median (Q1, Q3)",Ice lolly,1657,1656,1657,,0,0,2,"0 (0, 2)"

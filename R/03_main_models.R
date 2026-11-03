@@ -1,9 +1,9 @@
 # Main ITT and per-protocol analyses.
 #
-# This script fits the prespecified mixed-effects models:
+# This script fits the mixed-effects analyses retained in the revised report:
 # - primary PACU length of stay,
 # - secondary pain, nausea/vomiting, antiemetic use, delirium,
-# - ordinal medication dose models,
+# - two-part medication models with the documented binary fallbacks,
 # - corresponding per-protocol analyses.
 
 source(file.path("R", "00_setup.R"))
@@ -46,21 +46,31 @@ fit_main_population <- function(data, population) {
       outcome = "pacu_minutes",
       component = "gamma-log mixed model: adjusted mean difference",
       population = population
-    ),
-    treatment_row(
-      models$primary_lmm,
-      exponentiate = FALSE,
-      outcome = "pacu_minutes",
-      component = "linear mixed model sensitivity",
-      population = population
     )
   )
+
+  # The PP linear model remains necessary for its reported Q-Q plot and ICC.
+  # Only the ITT linear-model treatment contrast is reported in the paper.
+  if (population == "ITT") {
+    results$primary <- bind_rows(
+      results$primary,
+      treatment_row(
+        models$primary_lmm,
+        exponentiate = FALSE,
+        outcome = "pacu_minutes",
+        component = "linear mixed model sensitivity",
+        population = population
+      )
+    )
+  }
 
   # Pain scores are ordered 0-to-10 ratings with many zeros. Instead of forcing
   # a continuous distribution, use a cumulative logit mixed model. The treatment
   # effect is a proportional odds ratio for being in a higher pain-score
   # category.
-  for (outcome in c("nrs_admission", "nrs_discharge")) {
+  # Admission pain is described in Tables 1 and 2, not tested as a treatment
+  # outcome in the revised report. Retain its descriptive summaries only.
+  for (outcome in "nrs_discharge") {
     models[[outcome]] <- fit_ordinal(data, outcome, extra = "pacu_hours")
     results[[outcome]] <- treatment_row(
       models[[outcome]],

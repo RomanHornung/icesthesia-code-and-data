@@ -25,7 +25,7 @@ expected_columns <- c(
 stopifnot(identical(names(raw_data), expected_columns))
 stopifnot(!anyDuplicated(raw_data$ID))
 
-# Age is available only in categories. The SAP subgroup cutoffs are therefore
+# Age is available only in categories. The SAP age-group cutoffs are therefore
 # approximated by the available categories.
 age_group <- dplyr::case_when(
   raw_data$Age %in% c("2-3", "4-5", "6-8", "10-12") ~ "<=12",
@@ -47,6 +47,9 @@ analysis_data <- raw_data %>%
     age_group = factor(age_group, levels = c("13-75", "<=12", ">=76")),
     weight_group = factor(Weight),
     height_group = factor(Height),
+    # Table 1 retains all four ASA classes; the model covariate below combines
+    # classes III and IV to avoid sparse adjustment strata.
+    asa_original = factor(ASA, levels = c("I", "II", "III", "IV")),
     asa = factor(if_else(ASA %in% c("III", "IV"), "III-IV", ASA), levels = c("I", "II", "III-IV")),
     surgery_type = factor(
       Surg_Type,
@@ -110,57 +113,8 @@ analysis_data <- raw_data %>%
       (treatment == "Control" & ice_offered == 0L & ice_consumed == 0L)
   ) %>%
   mutate(
-    # Ordered dose categories used for the medication-dose models. These avoid
-    # treating strongly discrete dose variables as continuous gamma outcomes.
-    piritramide_dose_ord = ordered(
-      case_when(
-        piritramide_mg == 0 ~ "0",
-        piritramide_mg <= 3.75 ~ ">0-3.75",
-        piritramide_mg <= 7.5 ~ ">3.75-7.5",
-        piritramide_mg <= 15 ~ ">7.5-15",
-        piritramide_mg > 15 ~ ">15",
-        TRUE ~ NA_character_
-      ),
-      levels = c("0", ">0-3.75", ">3.75-7.5", ">7.5-15", ">15")
-    ),
-    dexketoprofen_dose_ord = ordered(
-      case_when(
-        dexketoprofen_mg == 0 ~ "0",
-        dexketoprofen_mg <= 50 ~ ">0-50",
-        dexketoprofen_mg > 50 ~ ">50",
-        TRUE ~ NA_character_
-      ),
-      levels = c("0", ">0-50", ">50")
-    ),
-    ibuprofen_dose_ord = ordered(
-      case_when(
-        ibuprofen_mg == 0 ~ "0",
-        ibuprofen_mg < 400 ~ ">0-<400",
-        ibuprofen_mg >= 400 ~ ">=400",
-        TRUE ~ NA_character_
-      ),
-      levels = c("0", ">0-<400", ">=400")
-    ),
-    paracetamol_dose_ord = ordered(
-      case_when(
-        paracetamol_mg == 0 ~ "0",
-        paracetamol_mg < 1000 ~ ">0-<1000",
-        paracetamol_mg == 1000 ~ "1000",
-        paracetamol_mg > 1000 ~ ">1000",
-        TRUE ~ NA_character_
-      ),
-      levels = c("0", ">0-<1000", "1000", ">1000")
-    ),
-    metamizole_dose_ord = ordered(
-      case_when(
-        metamizole_g == 0 ~ "0",
-        metamizole_g < 1 ~ ">0-<1",
-        metamizole_g == 1 ~ "1",
-        metamizole_g > 1 ~ ">1",
-        TRUE ~ NA_character_
-      ),
-      levels = c("0", ">0-<1", "1", ">1")
-    ),
+    # Part 2 uses positive-dose categories only. Zero doses enter the separate
+    # administration model; no additional ordinal model including zero is fitted.
     piritramide_positive_ord = ordered(
       case_when(
         piritramide_mg > 0 & piritramide_mg <= 3.75 ~ ">0-3.75",

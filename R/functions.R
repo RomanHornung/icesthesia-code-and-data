@@ -36,38 +36,36 @@ write_results_workbook <- function(table_folder, workbook_path) {
   tables <- lapply(table_files, readr::read_csv, show_col_types = FALSE)
 
   sheet_names <- c(
-    "participant_flow",
-    "baseline",
-    "outcome_descriptives",
-    "main_itt",
-    "main_per_protocol",
-    "primary_icc",
-    "subgroups"
+    table_01 = "participant_flow",
+    table_02 = "baseline",
+    table_04 = "main_itt",
+    table_05 = "main_per_protocol",
+    table_06 = "primary_icc",
+    table_08 = "outcome_summary",
+    table_09 = "outcome_summary_pp",
+    table_10 = "antiemetic_absolute"
   )
 
-  names(tables) <- sheet_names
+  table_ids <- substr(basename(table_files), 1, 8)
+  stopifnot(all(table_ids %in% names(sheet_names)))
+  names(tables) <- unname(sheet_names[table_ids])
 
-  writexl::write_xlsx(tables, workbook_path)
-}
-
-# Calculate a normal-approximation confidence interval for a mean.
-mean_ci <- function(x, level = 0.95) {
-  x <- x[!is.na(x)]
-  n <- length(x)
-
-  if (n < 2) {
-    return(c(mean = mean(x), lower = NA_real_, upper = NA_real_))
+  # A display-ready version of Table 1 accompanies its numerical source data.
+  # Preserve the row order specified by the descriptive script, not alphabetic
+  # order of category names or variable names.
+  baseline <- tables[["baseline"]]
+  if (!is.null(baseline)) {
+    ids <- unique(baseline$row_id)
+    display <- tibble::tibble(Characteristic = baseline$row_label[match(ids, baseline$row_id)])
+    for (group in c("Overall", "Control", "Ice lolly")) {
+      values <- baseline[baseline$group == group, ]
+      heading <- paste0(group, " (N = ", unique(values$group_n), ")")
+      display[[heading]] <- values$display_value[match(ids, values$row_id)]
+    }
+    tables[["Table1"]] <- display
   }
 
-  alpha <- 1 - level
-  se <- stats::sd(x) / sqrt(n)
-  t_value <- stats::qt(1 - alpha / 2, df = n - 1)
-
-  c(
-    mean = mean(x),
-    lower = mean(x) - t_value * se,
-    upper = mean(x) + t_value * se
-  )
+  writexl::write_xlsx(tables, workbook_path)
 }
 
 # Baseline covariates prespecified in the SAP.
@@ -84,17 +82,8 @@ fixed_covariates <- c(
 #
 # outcome: name of the outcome variable.
 # extra: optional additional covariates, e.g. PACU duration for pain outcomes.
-# interaction: optional subgroup variable for treatment-by-subgroup analyses.
-model_formula <- function(outcome, extra = NULL, interaction = NULL) {
-  if (is.null(interaction)) {
-    rhs <- c("treatment", fixed_covariates, extra)
-  } else {
-    rhs <- c(
-      paste0("treatment * ", interaction),
-      setdiff(fixed_covariates, interaction),
-      extra
-    )
-  }
+model_formula <- function(outcome, extra = NULL) {
+  rhs <- c("treatment", fixed_covariates, extra)
 
   stats::as.formula(
     paste(outcome, "~", paste(unique(rhs), collapse = " + "), "+ (1 | study_day)")
@@ -102,9 +91,9 @@ model_formula <- function(outcome, extra = NULL, interaction = NULL) {
 }
 
 # Fit a linear mixed model.
-fit_lmm <- function(data, outcome, extra = NULL, interaction = NULL) {
+fit_lmm <- function(data, outcome, extra = NULL) {
   lme4::lmer(
-    model_formula(outcome, extra = extra, interaction = interaction),
+    model_formula(outcome, extra = extra),
     data = data,
     REML = FALSE,
     na.action = na.omit,
@@ -113,9 +102,9 @@ fit_lmm <- function(data, outcome, extra = NULL, interaction = NULL) {
 }
 
 # Fit a logistic mixed model.
-fit_binary <- function(data, outcome, extra = NULL, interaction = NULL) {
+fit_binary <- function(data, outcome, extra = NULL) {
   glmmTMB::glmmTMB(
-    model_formula(outcome, extra = extra, interaction = interaction),
+    model_formula(outcome, extra = extra),
     data = data,
     family = binomial(),
     na.action = na.omit,
@@ -126,9 +115,9 @@ fit_binary <- function(data, outcome, extra = NULL, interaction = NULL) {
 }
 
 # Fit a gamma mixed model with log link.
-fit_gamma <- function(data, outcome, extra = NULL, interaction = NULL) {
+fit_gamma <- function(data, outcome, extra = NULL) {
   glmmTMB::glmmTMB(
-    model_formula(outcome, extra = extra, interaction = interaction),
+    model_formula(outcome, extra = extra),
     data = data,
     family = Gamma(link = "log"),
     na.action = na.omit,
@@ -162,7 +151,6 @@ as_ordered_outcome <- function(x) {
 fit_ordinal <- function(data,
                         outcome,
                         extra = NULL,
-                        interaction = NULL,
                         collapse_sparse_surgery = FALSE) {
   data[[outcome]] <- as_ordered_outcome(data[[outcome]])
 
@@ -181,7 +169,7 @@ fit_ordinal <- function(data,
   }
 
   ordinal::clmm(
-    model_formula(outcome, extra = extra, interaction = interaction),
+    model_formula(outcome, extra = extra),
     data = data,
     link = "logit",
     Hess = TRUE,
@@ -191,9 +179,9 @@ fit_ordinal <- function(data,
 }
 
 # Fit a logistic mixed model with lme4 as a fallback for difficult sparse data.
-fit_binary_lme4 <- function(data, outcome, extra = NULL, interaction = NULL) {
+fit_binary_lme4 <- function(data, outcome, extra = NULL) {
   lme4::glmer(
-    model_formula(outcome, extra = extra, interaction = interaction),
+    model_formula(outcome, extra = extra),
     data = data,
     family = binomial(),
     na.action = na.omit,
@@ -209,12 +197,8 @@ fit_binary_lme4 <- function(data, outcome, extra = NULL, interaction = NULL) {
 # This is used only when the full SAP-adjusted positive-dose model is not
 # estimable. It retains the treatment effect, PACU duration, and study-day
 # clustering, but avoids unstable sparse covariate strata.
-fit_binary_reduced <- function(data, outcome, extra = "pacu_hours", interaction = NULL) {
-  rhs <- if (is.null(interaction)) {
-    c("treatment", extra)
-  } else {
-    c(paste0("treatment * ", interaction), extra)
-  }
+fit_binary_reduced <- function(data, outcome, extra = "pacu_hours") {
+  rhs <- c("treatment", extra)
 
   formula <- stats::as.formula(
     paste(outcome, "~", paste(unique(rhs), collapse = " + "), "+ (1 | study_day)")
@@ -328,18 +312,13 @@ gamma_mean_difference <- function(model, outcome, component, population) {
   )
 }
 
-# Fit an ordinal medication-dose model including zero as the lowest category.
-#
-# This replaces the initially considered two-part gamma approach for medication
-# dose variables, because the observed doses are highly discrete and often
-# dominated by one standard dose. A cumulative logit model treats the complete
-# ordered dose scale, including no administration, in one model.
-fit_ordinal_dose <- function(data, outcome, extra = "pacu_hours", interaction = NULL) {
+# Fit the positive-dose component of the two-part medication analysis.
+# Only recipients are passed to this helper; zero is not an ordinal category.
+fit_ordinal_dose <- function(data, outcome, extra = "pacu_hours") {
   fit_ordinal(
     data = data,
     outcome = outcome,
     extra = extra,
-    interaction = interaction,
     collapse_sparse_surgery = FALSE
   )
 }
@@ -364,16 +343,14 @@ fit_medication_two_part <- function(data,
                                     outcome,
                                     positive_ordinal,
                                     positive_binary,
-                                    population = "ITT",
-                                    interaction = NULL) {
+                                    population = "ITT") {
   any_name <- paste0(outcome, "_any")
   data[[any_name]] <- as.integer(data[[outcome]] > 0)
 
   any_model <- fit_binary(
     data = data,
     outcome = any_name,
-    extra = "pacu_hours",
-    interaction = interaction
+    extra = "pacu_hours"
   )
 
   any_result <- treatment_row(
@@ -396,8 +373,7 @@ fit_medication_two_part <- function(data,
       fit_ordinal_dose(
         data = positive_data,
         outcome = positive_ordinal,
-        extra = "pacu_hours",
-        interaction = interaction
+        extra = "pacu_hours"
       ),
       error = function(e) NULL
     )
@@ -428,15 +404,13 @@ fit_medication_two_part <- function(data,
         fit_binary(
           data = positive_data,
           outcome = positive_binary,
-          extra = "pacu_hours",
-          interaction = interaction
+          extra = "pacu_hours"
         ),
         error = function(e) tryCatch(
           fit_binary_lme4(
             data = positive_data,
             outcome = positive_binary,
-            extra = "pacu_hours",
-            interaction = interaction
+            extra = "pacu_hours"
           ),
           error = function(e2) NULL
         )
@@ -469,8 +443,7 @@ fit_medication_two_part <- function(data,
         fit_binary_reduced(
           data = positive_data,
           outcome = positive_binary,
-          extra = "pacu_hours",
-          interaction = interaction
+          extra = "pacu_hours"
         ),
         error = function(e) NULL
       )
@@ -513,82 +486,6 @@ fit_medication_two_part <- function(data,
     positive_model_type = positive_model_type,
     results = bind_rows(any_result, positive_result)
   )
-}
-
-# Extract model-based treatment contrasts within subgroup levels.
-#
-# This is used for the subgroup table so that interaction p-values can be read
-# together with the estimated treatment effect in each subgroup level.
-subgroup_contrast_rows <- function(model,
-                                   data,
-                                   subgroup,
-                                   outcome,
-                                   component,
-                                   population,
-                                   effect_scale) {
-  counts <- data %>%
-    count(level = .data[[subgroup]], treatment, name = "n") %>%
-    tidyr::pivot_wider(names_from = treatment, values_from = n, values_fill = 0)
-
-  contrasts <- tryCatch({
-    emm <- emmeans::emmeans(model, specs = "treatment", by = subgroup)
-    ctr <- as.data.frame(summary(
-      emmeans::contrast(emm, method = "revpairwise"),
-      infer = TRUE,
-      type = "response"
-    ))
-
-    names(ctr)[names(ctr) == subgroup] <- "level"
-
-    estimate_column <- intersect(c("estimate", "odds.ratio", "ratio"), names(ctr))[1]
-    lower_column <- intersect(c("lower.CL", "asymp.LCL"), names(ctr))[1]
-    upper_column <- intersect(c("upper.CL", "asymp.UCL"), names(ctr))[1]
-
-    out <- ctr %>%
-      transmute(
-        level = as.character(level),
-        subgroup_effect = .data[[estimate_column]],
-        conf.low = .data[[lower_column]],
-        conf.high = .data[[upper_column]],
-        p.value = p.value
-      )
-
-    if (inherits(model, "clmm")) {
-      out <- out %>%
-        mutate(
-          subgroup_effect = exp(subgroup_effect),
-          conf.low = exp(conf.low),
-          conf.high = exp(conf.high)
-        )
-    }
-
-    out
-  }, error = function(e) {
-    tibble(
-      level = as.character(levels(droplevels(data[[subgroup]]))),
-      subgroup_effect = NA_real_,
-      conf.low = NA_real_,
-      conf.high = NA_real_,
-      p.value = NA_real_
-    )
-  })
-
-  contrasts %>%
-    left_join(counts, by = "level") %>%
-    mutate(
-      population = population,
-      outcome = outcome,
-      component = component,
-      subgroup = subgroup,
-      effect_scale = effect_scale,
-      n_control = Control,
-      n_ice_lolly = `Ice lolly`
-    ) %>%
-    select(
-      population, outcome, component, subgroup, level,
-      n_control, n_ice_lolly, effect_scale,
-      subgroup_effect, conf.low, conf.high, p.value
-    )
 }
 
 # Return TRUE/FALSE/NA for model singularity without stopping the analysis.
@@ -661,57 +558,8 @@ flatten_models <- function(x, prefix = "") {
   out
 }
 
-# Save histogram and normal Q-Q plot for an observed continuous variable.
-save_distribution_plots <- function(data, variable, label, folder) {
-  plot_data <- data %>%
-    select(treatment, value = all_of(variable)) %>%
-    filter(!is.na(value))
-
-  histogram <- ggplot(plot_data, aes(x = value, fill = treatment)) +
-    geom_histogram(bins = 50, alpha = 0.60, position = "identity") +
-    facet_wrap(~ treatment, ncol = 1, scales = "free_y") +
-    theme_minimal(base_size = 11) +
-    labs(x = label, y = "Patients", fill = "Group")
-
-  qq_plot <- ggplot(plot_data, aes(sample = value)) +
-    stat_qq(alpha = 0.50) +
-    stat_qq_line() +
-    facet_wrap(~ treatment) +
-    theme_minimal(base_size = 11) +
-    labs(x = "Theoretical quantiles", y = label)
-
-  ggsave(file.path(folder, paste0(variable, "_distribution.png")), histogram,
-         width = 8, height = 6, dpi = 180)
-  ggsave(file.path(folder, paste0(variable, "_qq.png")), qq_plot,
-         width = 8, height = 4.5, dpi = 180)
-}
-
-# Save a category-frequency plot for an ordinal outcome.
-#
-# This is more meaningful than a normal Q-Q plot for outcomes such as NRS pain
-# scores or medication doses, where only a limited set of ordered categories is
-# observed.
-save_ordinal_distribution_plot <- function(data, variable, label, folder) {
-  plot_data <- data %>%
-    mutate(category = as_ordered_outcome(.data[[variable]])) %>%
-    filter(!is.na(category)) %>%
-    count(treatment, category, name = "n") %>%
-    group_by(treatment) %>%
-    mutate(percent = 100 * n / sum(n)) %>%
-    ungroup()
-
-  bar_plot <- ggplot(plot_data, aes(x = category, y = percent, fill = treatment)) +
-    geom_col(position = "dodge") +
-    theme_minimal(base_size = 11) +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    labs(x = label, y = "Patients (%)", fill = "Group")
-
-  ggsave(file.path(folder, paste0(variable, "_ordinal_distribution.png")), bar_plot,
-         width = 9, height = 5.5, dpi = 180)
-}
-
-# Save residual-vs-fitted and residual Q-Q plots for fitted continuous models.
-save_residual_plots <- function(model, name, folder) {
+# Save the standardized Pearson-residual Q-Q plot used in the Supplement.
+save_residual_qq <- function(model, name, folder) {
   if (!(inherits(model, "merMod") || inherits(model, "glmmTMB"))) {
     return(invisible(NULL))
   }
@@ -722,32 +570,13 @@ save_residual_plots <- function(model, name, folder) {
   ) %>%
     mutate(standardized_residual = as.numeric(scale(residual)))
 
-  residual_plot <- ggplot(residual_data, aes(x = fitted, y = residual)) +
-    geom_point(alpha = 0.30) +
-    geom_hline(yintercept = 0, linetype = 2) +
-    geom_smooth(se = FALSE) +
-    theme_minimal(base_size = 11) +
-    labs(x = "Fitted values", y = "Pearson residuals")
-
   qq_plot <- ggplot(residual_data, aes(sample = standardized_residual)) +
     stat_qq(alpha = 0.50) +
     stat_qq_line() +
     theme_minimal(base_size = 11) +
     labs(x = "Theoretical quantiles", y = "Standardized residuals")
 
-  ggsave(file.path(folder, paste0(name, "_residuals_vs_fitted.png")), residual_plot,
-         width = 7, height = 5, dpi = 180)
   ggsave(file.path(folder, paste0(name, "_residual_qq.png")), qq_plot,
          width = 6, height = 5, dpi = 180)
 }
 
-# Count events by treatment for binary and ordinal outcomes.
-event_table <- function(data, outcome) {
-  data %>%
-    mutate(level = as.character(.data[[outcome]])) %>%
-    count(treatment, level, name = "n") %>%
-    group_by(treatment) %>%
-    mutate(percent = 100 * n / sum(n)) %>%
-    ungroup() %>%
-    mutate(outcome = outcome, .before = 1)
-}

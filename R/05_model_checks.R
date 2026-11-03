@@ -8,7 +8,8 @@ source(file.path("R", "00_setup.R"))
 
 analysis_data <- readRDS(file.path(paths$derived, "analysis_data.rds"))
 
-model_files <- list.files(paths$models, pattern = "\\.rds$", full.names = TRUE)
+model_files <- file.path(paths$models, c("models_itt.rds", "models_per_protocol.rds"))
+stopifnot(all(file.exists(model_files)))
 
 audit_rows <- list()
 
@@ -46,12 +47,10 @@ if (nrow(flagged_models) > 0) {
 itt_models <- readRDS(file.path(paths$models, "models_itt.rds"))
 pp_models <- readRDS(file.path(paths$models, "models_per_protocol.rds"))
 
-# Residual plots are saved only for the continuous PACU models. The NRS and
-# medication-dose outcomes are now ordinal models, for which the category
-# distribution plots from 02_descriptives_and_figures.R are the relevant visual
-# checks.
-save_residual_plots(itt_models$primary_gamma, "itt_primary_gamma", paths$figures)
-save_residual_plots(itt_models$primary_lmm, "itt_primary_lmm_sensitivity", paths$figures)
+# Save exactly the four residual Q-Q plots shown as Supplementary Figures 1-4.
+# The additional plots from earlier working versions are no longer exported.
+save_residual_qq(itt_models$primary_gamma, "itt_primary_gamma", paths$figures)
+save_residual_qq(itt_models$primary_lmm, "itt_primary_lmm_sensitivity", paths$figures)
 
-save_residual_plots(pp_models$primary_gamma, "pp_primary_gamma", paths$figures)
-save_residual_plots(pp_models$primary_lmm, "pp_primary_lmm_sensitivity", paths$figures)
+save_residual_qq(pp_models$primary_gamma, "pp_primary_gamma", paths$figures)
+save_residual_qq(pp_models$primary_lmm, "pp_primary_lmm_sensitivity", paths$figures)

@@ -2,7 +2,6 @@ population,outcome,component,effect_scale,estimate,conf.low,conf.high,p.value,n,
 ITT,pacu_minutes,gamma-log mixed model: adjusted mean ratio,ratio,1.0136994606590537,0.9593939029287594,1.0710789316083036,0.6281391092309969,3220,TRUE
 ITT,pacu_minutes,gamma-log mixed model: adjusted mean difference,difference,1.4393458752714423,-4.384876535387578,7.263568285930463,0.6281248321321358,3220,TRUE
 ITT,pacu_minutes,linear mixed model sensitivity,difference,2.224167171960061,-3.3974539809194093,7.845788324839531,0.43807364950675026,3220,TRUE
-ITT,nrs_admission,cumulative logit mixed model,proportional odds ratio,0.9934911712084297,0.8507967903017626,1.1601180428983717,0.9342120695897228,3216,TRUE
 ITT,nrs_discharge,cumulative logit mixed model,proportional odds ratio,0.9596129660283452,0.8308244085356188,1.1083654200684685,0.5750110342261125,3206,TRUE
 ITT,nausea,logistic mixed model,ratio,0.7982957463532464,0.5317636580139309,1.198419803688412,0.2771382435139292,3220,TRUE
 ITT,vomiting,logistic mixed model,ratio,0.6120061606063256,0.2795430567057693,1.339870662623278,0.21938755582811906,3220,TRUE

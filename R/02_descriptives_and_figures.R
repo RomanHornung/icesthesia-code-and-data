@@ -1,229 +1,120 @@
-# Descriptive summaries and distribution plots.
+# Participant counts and baseline characteristics for the revised report.
 #
-# This script produces the descriptive tables and the observed-variable plots
-# used to judge distributional shape for continuous outcomes. The plots are
-# saved so that the modelling choices can be checked visually.
+# The historical filename is retained to keep the execution order stable. This
+# script now writes the participant-flow summary and Table 1 source values.
+# The complete ITT and PP outcome tables are produced once, by script 08.
 
 source(file.path("R", "00_setup.R"))
-
-# Load the analysis dataset created by 01_prepare_data.R.
 analysis_data <- readRDS(file.path(paths$derived, "analysis_data.rds"))
 
-# Table 1: participant flow. This is a compact manuscript-style overview of
-# the ITT and per-protocol populations.
+# The input dataset contains retained analysis records only. Exclusions before
+# this dataset was assembled cannot be inferred from it; see the README for
+# the distinction between this summary and the clinical trial flow diagram.
 participant_flow <- analysis_data %>%
   summarise(
-    population = "ITT",
-    n = n(),
-    days = n_distinct(study_day),
+    population = "ITT", n = n(), days = n_distinct(study_day),
     control = sum(treatment == "Control"),
     ice_lolly = sum(treatment == "Ice lolly"),
-    ice_consumed = sum(ice_consumed == 1),
-    per_protocol = sum(pp_eligible)
+    ice_consumed = sum(ice_consumed == 1), per_protocol = sum(pp_eligible)
   )
-
 write_csv_safe(participant_flow, file.path(paths$tables, "table_01_participant_flow.csv"))
 
-# Baseline variables are summarised by treatment group. The resulting table is
-# stored in long format because it is easy to reshape for a manuscript table.
-categorical_baseline_variables <- c(
-  "age_group",
-  "sex",
-  "asa",
-  "surgery_type",
-  "anesthesia_type",
-  "epidural",
-  "regional_add_on"
-)
-
-baseline_categorical <- bind_rows(
-  lapply(categorical_baseline_variables, function(variable) {
-    analysis_data %>%
-      mutate(level = as.character(.data[[variable]])) %>%
-      count(treatment, level, name = "n") %>%
-      group_by(treatment) %>%
-      mutate(percent = 100 * n / sum(n), variable = variable) %>%
-      ungroup() %>%
-      transmute(
-        variable = variable,
-        level = level,
-        treatment = as.character(treatment),
-        n = n,
-        percent = percent,
-        mean = NA_real_,
-        sd = NA_real_,
-        median = NA_real_,
-        q1 = NA_real_,
-        q3 = NA_real_
-      )
-  })
-)
-
-# Anaesthesia duration is the continuous baseline covariate used in the adjusted
-# models. Both mean/SD and median/IQR are saved so that the final presentation
-# can follow the distributional assessment.
-baseline_continuous <- analysis_data %>%
-  group_by(treatment) %>%
-  summarise(
-    n = sum(!is.na(anesthesia_minutes)),
-    mean = mean(anesthesia_minutes, na.rm = TRUE),
-    mean_ci_lower = mean_ci(anesthesia_minutes)["lower"],
-    mean_ci_upper = mean_ci(anesthesia_minutes)["upper"],
-    sd = sd(anesthesia_minutes, na.rm = TRUE),
-    median = median(anesthesia_minutes, na.rm = TRUE),
-    q1 = quantile(anesthesia_minutes, 0.25, na.rm = TRUE),
-    q3 = quantile(anesthesia_minutes, 0.75, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  transmute(
-    variable = "anesthesia_minutes",
-    level = "",
-    treatment = as.character(treatment),
-    n = n,
-    percent = NA_real_,
-    mean = mean,
-    sd = sd,
-    median = median,
-    q1 = q1,
-    q3 = q3
-  )
-
-baseline_table <- bind_rows(baseline_categorical, baseline_continuous)
-
-write_csv_safe(baseline_table, file.path(paths$tables, "table_02_baseline_characteristics.csv"))
-
-# Outcomes are summarised descriptively before modelling. These summaries are
-# not adjusted; adjusted treatment effects are saved by 03_main_models.R.
-continuous_outcomes <- c(
-  "pacu_minutes",
-  "nrs_admission",
-  "nrs_discharge",
-  "piritramide_mg",
-  "dexketoprofen_mg",
-  "ibuprofen_mg",
-  "paracetamol_mg",
-  "metamizole_g"
-)
-
-continuous_labels <- c(
-  pacu_minutes = "PACU length of stay (minutes)",
-  nrs_admission = "NRS pain score at PACU admission",
-  nrs_discharge = "NRS pain score at PACU discharge",
-  piritramide_mg = "Piritramide dose (mg)",
-  dexketoprofen_mg = "Dexketoprofen dose (mg)",
-  ibuprofen_mg = "Ibuprofen dose (mg)",
-  paracetamol_mg = "Paracetamol dose (mg)",
-  metamizole_g = "Metamizole dose (g)"
-)
-
-continuous_summary <- analysis_data %>%
-  pivot_longer(all_of(continuous_outcomes), names_to = "outcome", values_to = "value") %>%
-  group_by(treatment, outcome) %>%
-  summarise(
-    n = sum(!is.na(value)),
-    mean = mean(value, na.rm = TRUE),
-    mean_ci_lower = mean_ci(value)["lower"],
-    mean_ci_upper = mean_ci(value)["upper"],
-    sd = sd(value, na.rm = TRUE),
-    median = median(value, na.rm = TRUE),
-    q1 = quantile(value, 0.25, na.rm = TRUE),
-    q3 = quantile(value, 0.75, na.rm = TRUE),
-    minimum = min(value, na.rm = TRUE),
-    maximum = max(value, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  mutate(
-    outcome_type = "continuous",
-    level = "",
-    n_observed = n,
-    events = NA_real_,
-    percent = NA_real_
-  )
-
-binary_summary <- analysis_data %>%
-  pivot_longer(c(antiemetic, nausea, vomiting), names_to = "outcome", values_to = "value") %>%
-  group_by(treatment, outcome) %>%
-  summarise(
-    n_observed = sum(!is.na(value)),
-    events = sum(value == 1, na.rm = TRUE),
-    percent = 100 * events / n_observed,
-    .groups = "drop"
-  ) %>%
-  mutate(
-    outcome_type = "binary",
-    level = "event",
-    n = NA_real_,
-    mean = NA_real_,
-    mean_ci_lower = NA_real_,
-    mean_ci_upper = NA_real_,
-    sd = NA_real_,
-    median = NA_real_,
-    q1 = NA_real_,
-    q3 = NA_real_,
-    minimum = NA_real_,
-    maximum = NA_real_
-  )
-
-delirium_summary <- event_table(analysis_data, "delirium") %>%
-  transmute(
-    treatment,
-    outcome = "delirium",
-    value = NA_real_,
-    outcome_type = "ordinal",
-    level,
-    n = NA_real_,
-    mean = NA_real_,
-    mean_ci_lower = NA_real_,
-    mean_ci_upper = NA_real_,
-    sd = NA_real_,
-    median = NA_real_,
-    q1 = NA_real_,
-    q3 = NA_real_,
-    minimum = NA_real_,
-    maximum = NA_real_,
-    n_observed = NA_real_,
-    events = n,
-    percent = percent
-  )
-
-outcome_descriptives <- bind_rows(
-  continuous_summary,
-  binary_summary,
-  delirium_summary
-) %>%
-  select(
-    outcome_type, outcome, level, treatment, n, n_observed, events, percent,
-    mean, mean_ci_lower, mean_ci_upper, sd, median, q1, q3, minimum, maximum
-  )
-
-write_csv_safe(outcome_descriptives, file.path(paths$tables, "table_03_outcome_descriptives.csv"))
-
-# Distribution plots are saved in a form that matches the model type. PACU
-# duration is treated as continuous, so histogram and Q-Q plots are useful.
-save_distribution_plots(
-  data = analysis_data,
-  variable = "pacu_minutes",
-  label = continuous_labels[["pacu_minutes"]],
-  folder = paths$figures
-)
-
-# NRS scores and medication doses are analysed as ordered outcomes. Bar plots of
-# category frequencies are therefore more informative than normal Q-Q plots.
-ordinal_plot_variables <- c(
-  nrs_admission = "NRS pain score at PACU admission",
-  nrs_discharge = "NRS pain score at PACU discharge",
-  piritramide_dose_ord = "Piritramide ordered dose category",
-  dexketoprofen_dose_ord = "Dexketoprofen ordered dose category",
-  ibuprofen_dose_ord = "Ibuprofen ordered dose category",
-  paracetamol_dose_ord = "Paracetamol ordered dose category",
-  metamizole_dose_ord = "Metamizole ordered dose category"
-)
-
-for (outcome in names(ordinal_plot_variables)) {
-  save_ordinal_distribution_plot(
-    data = analysis_data,
-    variable = outcome,
-    label = ordinal_plot_variables[[outcome]],
-    folder = paths$figures
-  )
+# Weight and height are supplied in bands, not as individual measurements.
+# Group whole bands without inventing patient-level values at a boundary.
+band_upper <- function(x) {
+  vapply(strsplit(as.character(x), "-", fixed = TRUE), function(bounds) {
+    if (anyNA(bounds)) return(NA_real_)
+    max(as.numeric(bounds))
+  }, numeric(1))
 }
+weight_upper <- band_upper(analysis_data$weight_group)
+height_upper <- band_upper(analysis_data$height_group)
+baseline_data <- analysis_data %>%
+  mutate(
+    table_weight = factor(case_when(
+      weight_upper <= 40 ~ "<=40", weight_upper <= 90 ~ "41-90",
+      weight_upper > 90 ~ ">90", TRUE ~ NA_character_
+    ), levels = c("<=40", "41-90", ">90")),
+    table_height = factor(case_when(
+      height_upper < 150 ~ "<150", height_upper < 170 ~ "150-169",
+      height_upper >= 170 ~ ">=170", TRUE ~ NA_character_
+    ), levels = c("<150", "150-169", ">=170"))
+  )
+
+# Preserve numerical source values separately from the one-decimal percentage
+# display. The combined workbook also provides a ready-to-read Table1 sheet.
+format_count <- function(x) format(x, big.mark = ",", scientific = FALSE, trim = TRUE)
+format_number <- function(x) {
+  sub("\\.?0+$", "", formatC(x, digits = 2, format = "f", decimal.mark = "."))
+}
+rows <- list()
+groups <- c("Overall", "Control", "Ice lolly")
+
+add_category <- function(id, variable, label, level, display_level = level) {
+  for (g in groups) {
+    data <- if (g == "Overall") baseline_data else filter(baseline_data, treatment == g)
+    x <- data[[variable]]
+    denominator <- sum(!is.na(x))
+    count <- sum(as.character(x) == level, na.rm = TRUE)
+    percent <- if (denominator) 100 * count / denominator else NA_real_
+    rows[[length(rows) + 1L]] <<- tibble(
+      row_id = id, row_label = paste0(label, ": ", display_level), group = g,
+      group_n = nrow(data), n = count, denominator = denominator, percent = percent,
+      median = NA_real_, q1 = NA_real_, q3 = NA_real_,
+      display_value = paste0(format_count(count), " (",
+                             formatC(percent, digits = 1, format = "f", decimal.mark = "."), "%)")
+    )
+  }
+}
+
+add_continuous <- function(id, variable, label, ordinal = FALSE) {
+  for (g in groups) {
+    data <- if (g == "Overall") baseline_data else filter(baseline_data, treatment == g)
+    x <- data[[variable]]
+    x <- x[!is.na(x)]
+    q <- if (length(x)) as.numeric(quantile(x, c(0.25, 0.5, 0.75),
+                                            type = if (ordinal) 1L else 7L)) else rep(NA_real_, 3)
+    rows[[length(rows) + 1L]] <<- tibble(
+      row_id = id, row_label = label, group = g, group_n = nrow(data),
+      n = length(x), denominator = nrow(data), percent = NA_real_,
+      median = q[2], q1 = q[1], q3 = q[3],
+      display_value = paste0(format_number(q[2]), " (", format_number(q[1]), ", ",
+                             format_number(q[3]), ")")
+    )
+  }
+}
+
+add_category("sex_male", "sex", "Sex", "Male")
+add_category("sex_female", "sex", "Sex", "Female")
+for (level in c("<=12", "13-75", ">=76")) {
+  add_category(paste0("age_", level), "age_group", "Age group (years)", level)
+}
+for (level in levels(baseline_data$table_weight)) {
+  add_category(paste0("weight_", level), "table_weight", "Weight (kg)", level)
+}
+for (level in levels(baseline_data$table_height)) {
+  add_category(paste0("height_", level), "table_height", "Height (cm)", level)
+}
+for (level in levels(baseline_data$asa_original)) {
+  add_category(paste0("asa_", level), "asa_original", "ASA classification", level)
+}
+for (level in levels(baseline_data$surgery_type)) {
+  add_category(paste0("surgery_", level), "surgery_type", "Surgical specialty", level)
+}
+
+# The fitted anaesthesia covariate combines spinal and peripheral nerve-block
+# anaesthesia (raw AN_Mode 5 and 6). Regional add-on blocks are a separate field.
+anaesthesia_labels <- c(TIVA = "TIVA", CIVA = "CIVA", Balanced = "Volatile anaesthesia",
+                       IVA = "MAC", Regional = "Spinal / peripheral nerve block")
+for (level in names(anaesthesia_labels)) {
+  add_category(paste0("anaesthesia_", level), "anesthesia_type", "Anaesthesia type",
+               level, anaesthesia_labels[[level]])
+}
+add_category("epidural", "epidural", "Anaesthesia", "1", "Epidural catheter")
+add_category("regional_add_on", "regional_add_on", "Anaesthesia", "1", "Regional add-on block")
+add_continuous("duration", "anesthesia_minutes", "Duration of anaesthesia (min), median (Q1, Q3)")
+add_continuous("nrs_admission", "nrs_admission", "NRS at PACU admission, median (Q1, Q3)", ordinal = TRUE)
+
+baseline_table <- bind_rows(rows)
+stopifnot(nrow(baseline_table) == 84L, n_distinct(baseline_table$row_id) == 28L)
+write_csv_safe(baseline_table, file.path(paths$tables, "table_02_baseline_characteristics.csv"))

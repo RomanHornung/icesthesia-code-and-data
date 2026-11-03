@@ -1,0 +1,15 @@
+# Local R session files are not part of the reproducibility supplement.
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Safeguards against accidentally adding confidential real-data inputs or fits.
+data/EIS_R.xlsx
+results_real/derived_data/
+results_real/models/
+
+# Office lock files and operating-system metadata.
+~$*
+.DS_Store
+Thumbs.db

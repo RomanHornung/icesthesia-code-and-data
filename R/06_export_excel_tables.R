@@ -1,4 +1,4 @@
-# Create an Excel workbook with all public result tables.
+# Create an Excel workbook with the reported result tables.
 #
 # The CSV files in the active results folder remain the primary
 # machine-readable tables.
